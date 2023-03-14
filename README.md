@@ -23,6 +23,7 @@ The main folder contains 3 elements:
 Basically, the directories tree will look something like this:
 
 ```Java
+| Java
 	| <benchmark-1>
 		| <source>
 		| Makefile
