@@ -1,5 +1,5 @@
 run:
-	java QuickSort.java  "../CSV/100.csv" "100"
+	java QuickSort.java  "../CSV/data/100.csv" "100"
 
 measure:
 	sudo modprobe msr
