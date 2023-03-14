@@ -1,6 +1,10 @@
 run:
 	java QuickSort.java  "../CSV/data/100.csv" "100"
 
+testMeasure: 
+	sudo modprobe msr
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100.csv" "100" " test quicksort1
+
 measure:
 	sudo modprobe msr
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/100.csv" "100" " Javaq quicksort1
