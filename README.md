@@ -1,11 +1,11 @@
-# Energy Efficiency in Programming Languages
+# Energy Efficiency in Programming Languages using RAPL
 #### Checking Energy Consumption in Programming Languages Using the _Computer Language Benchmark Game_ as a case study.
 
 ### What is this?
 
-This repo contains the source code of 10 distinct benchmarks, implemented in 28 different languages (exactly as taken from the [Computer Language Benchmark Game](https://benchmarksgame-team.pages.debian.net/benchmarksgame/)).
+This repo contains the source code of 4 distinct benchmarks implimented in Java.
 
-It also contains tools which provide support, for each benchmark of each language, to 4 operations: *(1)* **compilation**, *(2)* **execution**, *(3)* **energy measuring** and *(4)* **memory peak detection**.
+It also contains tools which provide support, for each benchmark of each language, to 4 operations: *(1)* **run**, *(2)* **test**, *(3)* **measure** and *(4)* **memory peak detection**.
 
 ### How is it structured and hows does it work?
 
@@ -15,17 +15,14 @@ Moreover, it must be defined, for each benchmark, how to perform the 4 operation
 Next, we explain the folder structure and how to specify, for each language benchmark, the execution of each operation.
 
 #### The Structure
-The main folder contains 32 elements: 
-1. 28 sub-folders (one for each of the considered languages); each folder contains a sub-folder for each considered benchmark.
+The main folder contains 3 elements: 
+1. A `java` subfolder; which contains a sub-folder for each considered benchmark (namely java.util.Arrays.sort(), Quicksort, Mergesort, Bubblesort) and data analysis tools.
 2. A `Python` script `compile_all.py`, capable of building, running and measuring the energy and memory usage of every benchmark in all considered languages.
 3. A `RAPL` sub-folder, containing the code of the energy measurement framework.
-4. A `Bash` script `gen-input.sh`, used to generate the input files for 3 benchmarks: `k-nucleotide`, `reverse-complement`, and `regex-redux`.
 
 Basically, the directories tree will look something like this:
 
 ```Java
-| ...
-| <Language-1>
 	| <benchmark-1>
 		| <source>
 		| Makefile
@@ -35,33 +32,29 @@ Basically, the directories tree will look something like this:
 		| <source>
 		| Makefile
 		| [input]
-| ...
-| <Language-i>
-	| <benchmark-1>
-	| ...
-	| <benchmark-i>
+	
+	| <dataMaster>
+		| DataProcessing.ipynb
+		| main.py
+	| <CSV>
+		| <data>
+		| Makefile
+		| makedata.java
+
 | RAPL
+	| main.c
+	| main*
+	| Makefile
+	| rapl.c
+	| rapl.o
+	| rapl.h
 | compile_all.py
 | gen-input.sh
 
 ```
 
-Taking the `C` language as an example, this is how the folder for the `binary-trees` and `k-nucleotide` benchmarks would look like:
 
-```Java
-| ...
-| C
-	| binary-trees
-		| binarytrees.gcc-3.c
-		| Makefile
-	| k-nucleotide
-		| knucleotide.c
-		| knucleotide-input25000000.txt
-		| Makefile
-	| ...
-| ...
 
-```
 
 #### The Operations
 
