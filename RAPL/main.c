@@ -11,7 +11,7 @@
 
 int main (int argc, char **argv)
 { char command[500]="",language[500]="", test[500]="", path[500]="";
-  int  ntimes = 50;
+  int  ntimes = 400;
   int  core = 0;
   int  i=0;
 
@@ -48,7 +48,7 @@ int main (int argc, char **argv)
   for (i = 0 ; i < ntimes ; i++)
     {
  	printf("%d", i);
-    	fprintf(fp,"%s ; ",test);
+    	fprintf(fp,"%s,",test);
 
 
 		#ifdef RUNTIME
