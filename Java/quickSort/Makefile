@@ -3,7 +3,7 @@ run:
 
 testMeasure: 
 	sudo modprobe msr
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100.csv" "100" " test testQuicksort
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100.csv" "100" " test Quicksort
 
 measurePrelim: 
 	sudo modprobe msr
