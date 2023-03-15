@@ -7,13 +7,17 @@ testRAPL:
 
 measure:
 	sudo modprobe msr
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/10000.csv" "10000" " JavaqE bubblesort10000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/20000.csv" "20000" " JavaqE bubblesort20000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/30000.csv" "30000" " JavaqE bubblesort30000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/40000.csv" "40000" " JavaqE bubblesort40000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/25000.csv" "25000" " JavaqE bubblesort25000
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/50000.csv" "50000" " JavaqE bubblesort50000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/60000.csv" "60000" " JavaqE bubblesort60000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/70000.csv" "70000" " JavaqE bubblesort70000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/80000.csv" "80000" " JavaqE bubblesort80000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/90000.csv" "90000" " JavaqE bubblesort90000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/75000.csv" "75000" " JavaqE bubblesort75000
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100000.csv" "100000" " JavaqE bubblesort100000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100000.csv" "200000" " JavaqE bubblesort200000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100000.csv" "300000" " JavaqE bubblesort300000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100000.csv" "400000" " JavaqE bubblesort400000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/500000.csv" "500000" " JavaqE bubblesort500000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/600000.csv" "600000" " JavaqE bubblesort600000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/700000.csv" "700000" " JavaqE bubblesort700000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/800000.csv" "800000" " JavaqE bubblesort800000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/900000.csv" "900000" " JavaqE bubblesort900000
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/1000000.csv" "1000000" " JavaqE bubblesort1000000
+

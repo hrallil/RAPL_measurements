@@ -4,7 +4,11 @@ public class bubblesort{
 	//main mehtod
 	public static void main(String[] args ){
 		int[] arr =  CSV_toArr(args[0],args[1]);
+		showarr(arr);
+		
 		bubblesort(arr);
+
+		showarr(arr);
 	}
 
 	//method to read CSV files and convert them to Array
@@ -40,5 +44,12 @@ public class bubblesort{
 			}
 		}
 		return arr;
+	}
+	public static void showarr(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i]);
+		}
+		System.out.println();
+		
 	}
 }
