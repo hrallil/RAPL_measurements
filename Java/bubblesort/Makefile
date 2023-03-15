@@ -7,7 +7,7 @@ test:
 
 measure:
 	sudo modprobe msr
-	sudo ../../RAPL/main "java bubblesort.java"../CSV/data/25000.csv" "25000" " bubblesort bubblesort25000
+	sudo ../../RAPL/main "java bubblesort.java "../CSV/data/25000.csv" "25000" " bubblesort bubblesort25000
 	sudo ../../RAPL/main "java bubblesort.java "../CSV/data/50000.csv" "50000" " bubblesort bubblesort50000
 	sudo ../../RAPL/main "java bubblesort.java "../CSV/data/75000.csv" "75000" " bubblesort bubblesort75000
 	sudo ../../RAPL/main "java bubblesort.java "../CSV/data/100000.csv" "100000" " bubblesort bubblesort100000
