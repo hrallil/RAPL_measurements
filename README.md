@@ -157,7 +157,7 @@ Supervisor of bachelor project: [@mhkirkeby](http://github.com/mhkirkeby)
 
 Main contributors: 
 	([@Hrallil](mamaar@ruc.dk) [git](http://github.com/Hrallil)), 
-	([@gho8888](smgho@ruc.dk) [git](http://github.com/gho8888), 
+	([@gho8888](smgho@ruc.dk) [git](http://github.com/gho8888)), 
 	([@k2carter2341](kcarter@ruc.dk) [git](http://github.com/k2carter2341)),
 	([@SundmanDK](sundman@ruc.dk) [git](http://github.com/sundmanDK))
 
