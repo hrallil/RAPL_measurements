@@ -59,32 +59,35 @@ Basically, the directories tree will look something like this:
 
 #### The Operations
 
-Each benchmark sub-folder, included in a language folder, contains a `Makefile`.
-This is the file where is stated how to perform the 4 supported operations: *(1)* **compilation**, *(2)* **execution**, *(3)* **energy measuring** and *(4)* **memory peak detection**.
-
-Basically, each `Makefile` **must** contains 4 rules, one for each operations:
+Each benchmark sub-folder containing an algorithm a `Makefile` can be found.
+This is the file where is stated how to perform the 3 supported operations: *(1)* **run**, *(2)* **test**, *(3)* **measure** and (4)**mem**. 
+Basically, each `Makefile` **must** contains 3 rules, one for each operations:
 
 | Rule | Description |
 | -------- | -------- |
-| `compile` | This rule specifies how the benchmark should be compiled in the considered language; Interpreted languages don't need it, so it can be left blank in such cases. |
-| `run` | This rule specifies how the benchmark should be executed; It is used to test whether the benchmark runs with no errors, and the output is the expected. |
-| `measure` | This rule shows how to use the framework included in the `RAPL` folder to measure the energy of executing the task specified in the `run` rule. |
+| `run` | This rule specifies how the algorithm should be executed; It is used to test whether the algorithm runs with no errors. |
+| `test` | This rule specifies how the benchmark should be executed; It is used to test whether the benchmark of the algorithm runs with no errors, and gives an expected output into a csv file. |
+| `measure` | This rule shows how to use the framework included in the `RAPL` folder to measure the energy of executing the task specified in the `run` rule. With possibly varying  inputs. |
 | `mem` | Similar to `measure`, this rule executes the task specified in the `run` rule but with support for memory peak detection. |
 
-To better understand it, here's the `Makefile` for the `binary-trees` benchmark in the `C` language:
+To better understand it, here's the `Makefile` for the `Quick sort` benchmark:
 
 ```Makefile
-compile:
-	/usr/bin/gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -fopenmp -D_FILE_OFFSET_BITS=64 -I/usr/include/apr-1.0 binarytrees.gcc-3.c -o binarytrees.gcc-3.gcc_run -lapr-1 -lgomp -lm
-	
-measure:
-	sudo ../../RAPL/main "./binarytrees.gcc-3.gcc_run 21" C binary-trees
-
 run:
-	./binarytrees.gcc-3.gcc_run 21
+	java QuickSort.java  "../CSV/data/100.csv" "100"
 
-mem:
-	/usr/bin/time -v ./binarytrees.gcc-3.gcc_run 21
+testMeasure: 
+	sudo modprobe msr
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100.csv" "100" " test Quicksort
+
+measure: 
+	sudo modprobe msr
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/25000.csv" "25000" " quicksort quicksort25000
+	^
+	...
+	v
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/1000000.csv" "1000000" " quicksort quicksort1000000
+
 
 ```
 
