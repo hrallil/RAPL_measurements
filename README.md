@@ -3,9 +3,9 @@
 
 ### What is this?
 
-This repo contains the source code of 4 distinct benchmarks implimented in Java.
+This is a repo which contains the algorithms, measuring tools, and results from a Bachelor project in Computer Science from [Roskilde university ](https://ruc.dk).
 
-It also contains tools which provide support, for each benchmark of each language, to 4 operations: *(1)* **run**, *(2)* **test**, *(3)* **measure** and *(4)* **memory peak detection**.
+The tool it contains allows 4 operations: *(1)* **run**, *(2)* **test**, *(3)* **measure** and *(4)* **memory peak detection**.
 
 ### How is it structured and hows does it work?
 
