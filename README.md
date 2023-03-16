@@ -133,11 +133,11 @@ Do note that the availability of GPU/DRAM measurements depend on your machine's 
 #### Wanna know your own code's energy behavior? We can help you!
 #### Follow this steps:
 
-##### 1. Create a folder with the name of you benchmark, such as `test-benchmark`, inside the language you implemented it.
+##### 1. Create a folder with the name of you benchmark, such as `test-benchmark`, in the <Java> folder.
 
 ##### 2. Follow the instructions presented in the [Operations](#the-operations) section, and fill the `Makefile`.
 
-##### 3. Use the `compile_all.py` script to compile, run, and/or measure what you want! Or run it yourself using the [`make`](https://linux.die.net/man/1/make) command.
+##### 3. Use the [`make measure`] to measure its energy consumption! Or run it yourself using the [`make run`] command.
 
 ### Further Reading
 Wanna know more? Check [this website](TBA)!
