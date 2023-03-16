@@ -4,11 +4,11 @@ public class bubblesort{
 	//main mehtod
 	public static void main(String[] args ){
 		int[] arr =  CSV_toArr(args[0],args[1]);
-		showarr(arr);
-		
+		//showarr(arr);
+
 		bubblesort(arr);
 
-		showarr(arr);
+		//showarr(arr);
 	}
 
 	//method to read CSV files and convert them to Array
