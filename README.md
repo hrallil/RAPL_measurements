@@ -70,7 +70,7 @@ Basically, each `Makefile` **must** contains 3 rules, one for each operations:
 | `measure` | This rule shows how to use the framework included in the `RAPL` folder to measure the energy of executing the task specified in the `run` rule. With possibly varying  inputs. |
 | `mem` | Similar to `measure`, this rule executes the task specified in the `run` rule but with support for memory peak detection. |
 
-To better understand it, here's the `Makefile` for the `Quick sort` benchmark:
+To better understand it, here's the `Makefile` for the `Quicksort` benchmark:
 
 ```Makefile
 run:
@@ -97,11 +97,12 @@ measure:
 ```
 sudo modprobe msr
 ```
-and then generate the input files, like this
-```Makefile
-./gen-input.sh
+and then generate the input files, with the makefile in the <CSV> directory.
+
+```PowerShell
+make data
 ```
-This will generate the necessary input files, and are valid for every language.
+This will generate the necessary input files and save the values in CSV files which will later be read by the algorithms.
 
 We included a main Python script, `compile_all.py`, that you can either call from the main folder or from inside a language folder, and it can be executed as follows:
 
@@ -113,10 +114,16 @@ You can provide a rule from the available 4 referenced before, and the script wi
 
 The default rule is `compile`, which means that if you run it with no arguments provided (`python compile_all.py`) the script will try to compile all benchmarks.
 
-The results of the energy measurements will be stored in files with the name `<language>.csv`, where `<language>` is the name of the running language. 
-You will find such file inside of corresponding language folder.
+The results of the energy measurements will be stored in files with the name `<algorithm>.csv`, where `<algorithm>` is the name of the running algorithm. 
+You will find such file inside of corresponding algorithm folder.
 
-Each <language>.csv will contain a line with the following: 
+You can also run each algorithm individually by calling the following line in any algorithm folder.
+
+```PowerShell
+make measure
+```
+
+Each <algorithm>.csv will contain a line with the following: 
 
 ```benchmark-name ; PKG (Joules) ; CPU (J) ; GPU (J) ; DRAM (J) ; Time (ms)```
 
@@ -133,26 +140,22 @@ Do note that the availability of GPU/DRAM measurements depend on your machine's 
 ##### 3. Use the `compile_all.py` script to compile, run, and/or measure what you want! Or run it yourself using the [`make`](https://linux.die.net/man/1/make) command.
 
 ### Further Reading
-Wanna know more? Check [this website](https://sites.google.com/view/energy-efficiency-languages)!
+Wanna know more? Check [this website](TBA)!
 
-There you can find the results of a successful experimental setup using the contents of this repo, and the used machine and compilers specifications.
-
-You can also find there the paper which include such results and our discussion on them:
-
->**"_Energy Efficiency across Programming Languages: How does Energy, Time and Memory Relate?_"**, 
->Rui Pereira, Marco Couto, Francisco Ribeiro, Rui Rua, Jácome Cunha, João Paulo Fernandes, and João Saraiva. 
->In *Proceedings of the 10th International Conference on Software Language Engineering (SLE '17)*
+There you will find our paper which will include the results of a successful experimental setup using the contents of this repo, and the used machine, compilers specifications, discussions regarding the our results, and more.
 
 #### IMPORTANT NOTE:
 The `Makefiles` have specified, for some cases, the path for the language's compiler/runner. 
-It is most likely that you will not have them in the same path of your machine.
+It is likely that you will not have them in the same path of your machine.
 If you would like to properly test every benchmark of every language, please make sure you have all compilers/runners installed, and adapt the `Makefiles` accordingly.
 
 ### Contacts and References
 
-[Green Software Lab](http://greenlab.di.uminho.pt)
+[ROSKILDE university ](https://ruc.dk)
 
-Main contributors: [@Marco Couto](http://github.com/MarcoCouto) and [@Rui Pereira](http://haslab.uminho.pt/ruipereira)
+Supervisor of bachelor project: [@mhkirkeby](http://github.com/mhkirkeby)
+
+Main contributors: [@Hrallil](http://github.com/Hrallil, mamaar@ruc.dk), [@gho8888](http://github.com/gho8888, smgho@ruc.dk), [@k2carter2341](http://github.com/k2carter2341, kcarter@ruc.dk) and [@SundmanDK](http://github.com/sundmanDK, sundman@ruc.dk)
 
 
 [The Computer Language Benchmark Game](https://benchmarksgame-team.pages.debian.net/benchmarksgame/)
