@@ -155,7 +155,11 @@ If you would like to properly test every benchmark of every language, please mak
 
 Supervisor of bachelor project: [@mhkirkeby](http://github.com/mhkirkeby)
 
-Main contributors: [@Hrallil](http://github.com/Hrallil, mamaar@ruc.dk), [@gho8888](http://github.com/gho8888, smgho@ruc.dk), [@k2carter2341](http://github.com/k2carter2341, kcarter@ruc.dk) and [@SundmanDK](http://github.com/sundmanDK, sundman@ruc.dk)
+Main contributors: 
+	[@Hrallil](mamaar@ruc.dk) - [git](http://github.com/Hrallil), 
+	[@gho8888](smgho@ruc.dk) - [git](http://github.com/gho8888), 
+	[@k2carter2341](kcarter@ruc.dk) - [git](http://github.com/k2carter2341) 
+	[@SundmanDK](sundman@ruc.dk) - [git](http://github.com/sundmanDK)
 
 
 [The Computer Language Benchmark Game](https://benchmarksgame-team.pages.debian.net/benchmarksgame/)
