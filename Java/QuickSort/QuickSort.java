@@ -45,7 +45,7 @@ public class QuickSort{
 	}
 
 	public static int partition(int[] arr, int low, int high){
-		int pivot = arr[low];
+		int pivot = middleOfThree(arr[0], arr[arr.length/2], arr[arr.length]);
 		int leftwall = low;
 		int temp;
 		for(int i = low+1; i <= high;i++){
@@ -63,6 +63,17 @@ public class QuickSort{
 		//swap(arr,pivot,leftwall);
 		return leftwall;
 	}
+	//median of three
+	public static int middleOfThree(int a, int b, int c){
+        // Checking for b
+        if ((a < b && b < c) || (c < b && b < a))
+            return b;
+        // Checking for a
+        else if ((b < a && a < c) || (c < a && a < b))
+        	return a;
+        else
+        	return c;
+    }
 
 	public static void swap(int[] arr, int a, int b){
 		int temp = arr[a];
