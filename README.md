@@ -1,6 +1,8 @@
 # Energy Efficiency in Programming Languages using RAPL
 #### Checking Energy Consumption in Programming Languages Using the _Computer Language Benchmark Game_ as a case study.
 
+This repository is heavily inspired by [this](TBA) repository. 
+
 ### What is this?
 
 This is a repo which contains the algorithms, measuring tools, and results from a Bachelor project in Computer Science from [Roskilde university ](https://ruc.dk).
