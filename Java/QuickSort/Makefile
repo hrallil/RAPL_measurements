@@ -3,7 +3,7 @@ run:
 
 testMeasure: 
 	sudo modprobe msr
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100.csv" "100" " test Quicksort
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100.csv" "100" " QuickSort/results/test Quicksort
 
 measure: 
 	sudo ifconfig wlp4s0 down
