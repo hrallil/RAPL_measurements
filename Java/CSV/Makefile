@@ -8,7 +8,10 @@ test:
 	java makeData.java 100 partialSorted
 
 input:
-	input-R
+	make input-sorted
+	make input-partialSorted
+	make input-reverseSorted
+	make input-random
 
 input-sorted:
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \

@@ -3,12 +3,12 @@ run:
 
 testMeasure: 
 	sudo modprobe msr
-	sudo ../../RAPL/main "java bubblesort.java "../CSV/data/100.csv" "100" " test bubblesort
+	sudo ../../RAPL/main "java bubblesort.java "../CSV/data/100.csv" "100" " bubblesort/results/test bubblesort
 
 measure: 
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
-		sudo ../../RAPL/main "java bubblesort.java "../CSV/data/$$number.csv" "$$number" " bubblesort bubblesort$$number; \
+		sudo ../../RAPL/main "java bubblesort.java "../CSV/data/$$number.csv" "$$number" " bubblesort/results/bubblesort bubblesort$$number; \
 	done
 	sudo ifconfig wlp4s0 up
