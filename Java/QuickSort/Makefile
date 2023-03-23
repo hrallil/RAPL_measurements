@@ -6,6 +6,7 @@ testMeasure:
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100.csv" "100" " test Quicksort
 
 measure: 
+	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/25000.csv" "25000" " quicksort quicksort25000
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/50000.csv" "50000" " quicksort quicksort50000

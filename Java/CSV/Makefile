@@ -1,16 +1,19 @@
-dataPrelim:
-	java makeData.java 10000
-	java makeData.java 20000
-	java makeData.java 30000
-	java makeData.java 40000
-	java makeData.java 50000
-	java makeData.java 60000
-	java makeData.java 70000
-	java makeData.java 80000
-	java makeData.java 90000
-	java makeData.java 100000
+test:
+	java makeData.java 100 sorted
+	java makeData.java 100 reverseSorted
+	java makeData.java 100 random
+	java makeData.java 100 partialSorted
 
-data:
+input:
+	input-R
+
+input-R:
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
+		java makedata.java $$number ; \
+	done
+
+
+bin:
 	java makeData.java 25000
 	java makeData.java 50000
 	java makeData.java 75000
