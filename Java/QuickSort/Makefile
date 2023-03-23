@@ -8,6 +8,13 @@ testMeasure:
 measure: 
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
+	
+
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
+		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/$$number.csv" "$$number" " quicksort quicksort$$number \
+	done
+
+bin:
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/25000.csv" "25000" " quicksort quicksort25000
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/50000.csv" "50000" " quicksort quicksort50000
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/75000.csv" "75000" " quicksort quicksort75000
@@ -21,17 +28,3 @@ measure:
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/800000.csv" "800000" " quicksort quicksort800000
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/900000.csv" "900000" " quicksort quicksort900000
 	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/1000000.csv" "1000000" " quicksort quicksort1000000
-
-measurePrelim: 
-	sudo modprobe msr
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/10000.csv" "10000" " JavaqE quicksort10000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/20000.csv" "20000" " JavaqE quicksort20000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/30000.csv" "30000" " JavaqE quicksort30000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/40000.csv" "40000" " JavaqE quicksort40000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/50000.csv" "50000" " JavaqE quicksort50000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/60000.csv" "60000" " JavaqE quicksort60000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/70000.csv" "70000" " JavaqE quicksort70000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/80000.csv" "80000" " JavaqE quicksort80000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/90000.csv" "90000" " JavaqE quicksort90000
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100000.csv" "100000" " JavaqE quicksort100000
-
