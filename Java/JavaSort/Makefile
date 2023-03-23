@@ -1,35 +1,14 @@
 run:
-	java JavaSort.java "../CSV/data/100.csv" 100
+	java QuickSort.java  "../CSV/data/100.csv" "100"
 
-test: 
+testMeasure: 
 	sudo modprobe msr
 	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/100.csv" "100" " test JavaSort
 
 measure: 
+	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/25000.csv" "25000" " JavaSort JavaSort25000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/50000.csv" "50000" " JavaSort JavaSort50000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/75000.csv" "75000" " JavaSort JavaSort75000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/100000.csv" "100000" " JavaSort JavaSort100000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/200000.csv" "200000" " JavaSort JavaSort200000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/300000.csv" "300000" " JavaSort JavaSort300000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/400000.csv" "400000" " JavaSort JavaSort400000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/500000.csv" "500000" " JavaSort JavaSort500000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/600000.csv" "600000" " JavaSort JavaSort600000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/700000.csv" "700000" " JavaSort JavaSort700000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/800000.csv" "800000" " JavaSort JavaSort800000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/900000.csv" "900000" " JavaSort JavaSort900000
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/1000000.csv" "1000000" " JavaSort JavaSort1000000
-
-measurePrelim:
-	sudo modprobe msr
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/10000.csv" "10000" " JavaSortE JavaSort1
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/20000.csv" "20000" " JavaSortE JavaSort2
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/30000.csv" "30000" " JavaSortE JavaSort3
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/40000.csv" "40000" " JavaSortE JavaSort4
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/50000.csv" "50000" " JavaSortE JavaSort5
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/60000.csv" "60000" " JavaSortE JavaSort6
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/70000.csv" "70000" " JavaSortE JavaSort7
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/80000.csv" "80000" " JavaSortE JavaSort8
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/90000.csv" "90000" " JavaSortE JavaSort9
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/100000.csv" "100000" " JavaSortE JavaSort10
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
+		sudo ../../RAPL/main "java JavaSort.java "../CSV/data/$$number.csv" "$$number" " JavaSort JavaSort$$number; \
+	done
+	sudo ifconfig wlp4s0 up
