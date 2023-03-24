@@ -22,9 +22,9 @@ input-reverseSorted:
 	done
 
 input-random:
-	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \ 
-		for n in 1 2 3 4 5 6 7 8 9 10; do \ 
-			java makeData.java $$number random $$n; \
-		done \
-	done \
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do  \
+		for n in 1 2 3 4 5 6 7 8 9 10; do 																		\
+			java makeData.java $$number random $$n; 															\
+		done 																									\
+	done
 
