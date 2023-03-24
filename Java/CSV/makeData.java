@@ -17,26 +17,25 @@ public class makeData{
 			PrintWriter w = new PrintWriter(f);
 			
 			if(type.equals("sorted")){
-				for (int i = 0; i < arraySize; i++) {
-					w.println(i);
+				for (int i = 0; i < arraySize - 1; i++) {
+					w.print(i +",");
 				}
+				w.print(arraySize);
 			}
 			if (type.equals("reverseSorted")) {
 				for (int i = 0; i < arraySize; i++) {
-					w.println(arraySize - i);
+					w.print(arraySize - i + ",");
 				}
-			}
-			if (type.equals("partialSorted")) { //what does partially sorted mean ? 
-				for (int i = 0; i < arraySize; i++) {
-					w.println(arraySize - i);
-				}
+				w.print(0);
 			}
 			if(type.equals("random") || type==null){
 				for(int i = 0; i<arraySize;i++){
-					w.println(r.nextInt());
+					w.print(r.nextInt() + ",");
 				}
-				w.close();
+				w.print(r.nextInt());
 			}
+
+			w.close();
 		}
 		catch(Exception e){
 			e.printStackTrace();
