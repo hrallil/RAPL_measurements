@@ -1,36 +1,38 @@
 run:
 	java mergeSort.java "../CSV/data/100.csv" "100"
 
+testMeasure: 
+	sudo modprobe msr
+	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/100.csv" "100" " MergeSort/results/test mergeSort
+
+
 measure:
-	sudo modprobe msr
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/25000.csv" "25000" " merge25k-1M merge-sort25000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/50000.csv" "50000" " merge25k-1M merge-sort50000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/75000.csv" "75000" " merge25k-1M merge-sort75000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/100000.csv" "100000" " merge25k-1M merge-sort100000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/200000.csv" "200000" " merge25k-1M merge-sort200000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/300000.csv" "300000" " merge25k-1M merge-sort300000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/400000.csv" "400000" " merge25k-1M merge-sort400000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/500000.csv" "500000" " merge25k-1M merge-sort500000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/600000.csv" "600000" " merge25k-1M merge-sort600000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/700000.csv" "700000" " merge25k-1M merge-sort700000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/800000.csv" "800000" " merge25k-1M merge-sort800000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/900000.csv" "900000" " merge25k-1M merge-sort900000
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/1000000.csv" "1000000" " merge25k-1M merge-sort1000000
+	make randMeasure
+	make randMeasure
+	make bestMeasure
 
-measureS:
+randMeasure: # Random values measurement 
+	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/100.csv" "100" " JavaMs merge-sort100
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/200.csv" "200" " JavaMs merge-sort200
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/300.csv" "300" " JavaMs merge-sort300
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/400.csv" "400" " JavaMs merge-sort400
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/500.csv" "500" " JavaMs merge-sort500
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/600.csv" "600" " JavaMs merge-sort600
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/700.csv" "700" " JavaMs merge-sort700
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/800.csv" "800" " JavaMs merge-sort800
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/900.csv" "900" " JavaMs merge-sort900
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/1000.csv" "1000" " JavaMs merge-sort1000
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 												\
+		sudo ../../RAPL/main "java mergeSort.java "../CSV/data/random0-$$number.csv" "$$number" " MergeSort/results/randomMergeSort $$number; 		\
+	done
+	sudo ifconfig wlp4s0 up
 
-measureTest:
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/100.csv" "100" " /merge-sort/Test Test100
+bestMeasure: #doesnt work yet, should do the best case
+	sudo ifconfig wlp4s0 down
+	sudo modprobe msr
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 												\
+		sudo ../../RAPL/main "java mergeSort.java "../CSV/data/$$number.csv" "$$number" " MergeSort/results/bestMergeSort $$number; 				\
+	done
+	sudo ifconfig wlp4s0 up
+
+worstMeasure: #doesnt work yet, should do the worst case
+	sudo ifconfig wlp4s0 down
+	sudo modprobe msr
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 												\
+		sudo ../../RAPL/main "java mergeSort.java "../CSV/data/$$number.csv" "$$number" " MergeSort/results/WorstMergeSort $$number; 				\
+	done
+	sudo ifconfig wlp4s0 up
 
 
