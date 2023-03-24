@@ -6,8 +6,8 @@ runAll:
 	$(MAKE) -C CountingSort run
 
 measureAll:
-	$(MAKE) -C Mergesort make measure
-	$(MAKE) -C JavaSort make measure
-	$(MAKE) -C CountingSort make measure
-	$(MAKE) -C Bubblesort make measure
-	$(MAKE) -C java QuickSort make measure
+	$(MAKE) -C Mergesort measure
+	$(MAKE) -C JavaSort measure
+	$(MAKE) -C CountingSort measure
+	$(MAKE) -C Bubblesort measure
+	$(MAKE) -C java QuickSort measure

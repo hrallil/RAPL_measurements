@@ -3,7 +3,7 @@ import java.io.*;
 
 public class makeData{
 	public static void main(String[] args){
-		writeFile(args[0],args[1], args[2]);
+		writeFile(args[0],args[1],args[2]);
 	}
 
 
@@ -30,9 +30,9 @@ public class makeData{
 			}
 			if(type.equals("random") || type==null){
 				for(int i = 0; i<arraySize;i++){
-					w.print(r.nextInt() + ",");
+					w.print(r.nextInt(Integer.MAX_VALUE) + ",");
 				}
-				w.print(r.nextInt());
+				w.print(r.nextInt(Integer.MAX_VALUE));
 			}
 
 			w.close();
