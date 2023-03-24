@@ -11,7 +11,7 @@ public class makeData{
 	// and will default to random data
 	public static void writeFile(String s, String type, String randIteration){
 		int arraySize = Integer.parseInt(s);
-		File f = new File("./data/" + type + "-" + arraySize + randIteration + ".csv");
+		File f = new File("./data/" +  type + randIteration + "-" + arraySize + ".csv");
 		Random r = new Random();
 		try{
 			PrintWriter w = new PrintWriter(f);
