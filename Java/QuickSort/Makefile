@@ -1,9 +1,9 @@
 run:
-	java QuickSort.java  "../CSV/data/100.csv" "100"
+	java QuickSort.java  "../CSV/data/test0-100.csv" "100"
 
 testMeasure: 
 	sudo modprobe msr
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/100.csv" "100" " QuickSort/results/test Quicksort
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/test0-100.csv" "100" " QuickSort/results/test Quicksort
 
 measure:
 	make randMeasure

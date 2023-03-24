@@ -1,9 +1,9 @@
 run:
-	java Idle.java  "../CSV/data/100.csv" "100"
+	java Idle.java  "../CSV/data/test0-100.csv" "100"
 
 testMeasure: 
 	sudo modprobe msr
-	sudo ../../RAPL/main "java Idle.java "../CSV/data/100.csv" "100" " Idle/results/test Idle
+	sudo ../../RAPL/main "java Idle.java "../CSV/data/test0-100.csv" "100" " Idle/results/test Idle
 
 measure: 
 	sudo ifconfig wlp4s0 down

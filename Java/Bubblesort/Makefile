@@ -1,9 +1,9 @@
 run:
-	java bubblesort.java  "../CSV/data/100.csv" "100"
+	java bubblesort.java  "../CSV/data/test0-100.csv" "100"
 
 testMeasure: 
 	sudo modprobe msr
-	sudo ../../RAPL/main "java bubblesort.java "../CSV/data/100.csv" "100" " bubblesort/results/test bubblesort
+	sudo ../../RAPL/main "java bubblesort.java "../CSV/data/test0-100.csv" "100" " bubblesort/results/test bubblesort
 
 measure:
 	make randMeasure

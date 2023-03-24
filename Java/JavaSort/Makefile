@@ -1,9 +1,9 @@
 run:
-	java JavaSort.java  "../CSV/data/100.csv" "100"
+	java JavaSort.java  "../CSV/data/test0-100.csv" "100"
 
 testMeasure: 
 	sudo modprobe msr
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/100.csv" "100" " JavaSort/results/test JavaSort
+	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/test0-100.csv" "100" " JavaSort/results/test JavaSort
 
 measure: 
 	sudo ifconfig wlp4s0 down
