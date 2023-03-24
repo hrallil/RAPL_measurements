@@ -14,7 +14,7 @@ public class MergeSort{
 		int[] arr = new int[Integer.parseInt(fileSize)];
 		try{
 			Scanner sc = new Scanner(new File(path));
-			sc.useDelimiter("\n");
+			sc.useDelimiter(",");
 			int i = 0;
 			while(sc.hasNext()){
 				arr[i] = Integer.parseInt(sc.next());
