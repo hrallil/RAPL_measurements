@@ -23,13 +23,13 @@ public class makeData{
 				w.print(arraySize);
 			}
 			if (type.equals("reverseSorted")) {
-				for (int i = 0; i < arraySize; i++) {
+				for (int i = 0; i < arraySize - 1; i++) {
 					w.print(arraySize - i + ",");
 				}
 				w.print(0);
 			}
 			if(type.equals("random") || type.equals("test") || type==null){
-				for(int i = 0; i<arraySize;i++){
+				for(int i = 0; i<arraySize- 1;i++){
 					w.print(r.nextInt(Integer.MAX_VALUE) + ",");
 				}
 				w.print(r.nextInt(Integer.MAX_VALUE));
