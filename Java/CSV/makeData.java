@@ -3,6 +3,9 @@ import java.io.*;
 
 public class makeData{
 	public static void main(String[] args){
+		if(args[2] == null){
+			args[2] = "";
+		}
 		writeFile(args[0],args[1], args[2]);
 	}
 
