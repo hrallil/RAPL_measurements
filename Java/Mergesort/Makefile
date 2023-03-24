@@ -1,5 +1,5 @@
 run:
-	java mergeSort.java "../CSV/100.csv" "10"
+	java mergeSort.java "../CSV/100.csv" "100"
 
 measure:
 	sudo modprobe msr

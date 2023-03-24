@@ -1,7 +1,7 @@
 runAll:
 	$(MAKE) -C JavaSort run
 	$(MAKE) -C Bubblesort run
-	$(MAKE) -C java QuickSort run
+	$(MAKE) -C QuickSort run
 	$(MAKE) -C Mergesort run
 	$(MAKE) -C CountingSort run
 
