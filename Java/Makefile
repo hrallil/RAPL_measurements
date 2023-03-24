@@ -4,6 +4,7 @@ runAll:
 	$(MAKE) -C QuickSort run
 	$(MAKE) -C Mergesort run
 	$(MAKE) -C CountingSort run
+	$(MAKE) -C Idle run
 
 measureAll:
 	$(MAKE) -C Mergesort measure
@@ -11,3 +12,4 @@ measureAll:
 	$(MAKE) -C CountingSort measure
 	$(MAKE) -C Bubblesort measure
 	$(MAKE) -C java QuickSort measure
+	$(MAKE) -C Idle measure
