@@ -2,9 +2,9 @@ compile:
 	javac makeData.java
 
 test:
-	java makeData.java 100 sorted
-	java makeData.java 100 reverseSorted
-	java makeData.java 100 random
+	java makeData.java 100 sorted 0
+	java makeData.java 100 reverseSorted 0
+	java makeData.java 100 random 0
 
 input:
 	make input-sorted
@@ -12,13 +12,13 @@ input:
 	make input-random
 
 input-sorted:
-	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
-		java makeData.java $$number 0 sorted; \
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 	\
+		java makeData.java $$number sorted 0; 																	\
 	done
 
 input-reverseSorted:
-	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
-		java makeData.java $$number 0 reverseSorted; \
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 	\
+		java makeData.java $$number reverseSorted 0; 															\
 	done
 
 input-random:
