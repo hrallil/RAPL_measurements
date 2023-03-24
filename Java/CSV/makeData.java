@@ -3,15 +3,15 @@ import java.io.*;
 
 public class makeData{
 	public static void main(String[] args){
-		writeFile(args[0],args[1]);
+		writeFile(args[0],args[1], args[2]);
 	}
 
 
 	// Write to file method. Will write acording to input from main. can write :sorted data, reverse sorted data, partially sorted data 
 	// and will default to random data
-	public static void writeFile(String s, String type){
+	public static void writeFile(String s, String type, String randIteration){
 		int arraySize = Integer.parseInt(s);
-		File f = new File("./data/" + type + "-" + arraySize + ".csv");
+		File f = new File("./data/" + type + "-" + arraySize + randIteration + ".csv");
 		Random r = new Random();
 		try{
 			PrintWriter w = new PrintWriter(f);
