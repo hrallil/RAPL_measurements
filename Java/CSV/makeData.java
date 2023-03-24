@@ -28,7 +28,7 @@ public class makeData{
 				}
 				w.print(0);
 			}
-			if(type.equals("random") || type==null){
+			if(type.equals("random") || type.equals("test") || type==null){
 				for(int i = 0; i<arraySize;i++){
 					w.print(r.nextInt(Integer.MAX_VALUE) + ",");
 				}
