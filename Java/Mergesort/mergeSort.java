@@ -2,13 +2,12 @@
 import java.util.Scanner;
 import java.io.File;
 
-public class Main{
-
+public class MergeSort{
 	public static void main(String[] args){
 		int[] arr = CSV_toArr(args[0], args[1]); //{9, 3, 5, 7, 2, 8, 10, 1, 4, 6};
-//		System.out.println("before: "+ Arrays.toString(arr));
+		//System.out.println("before: "+ Arrays.toString(arr));
 		mergeSort(arr, 0, arr.length -1);
-//		System.out.println("after: "+ Arrays.toString(arr));
+		//System.out.println("after: "+ Arrays.toString(arr));
 	}
 
 	public static int[] CSV_toArr(String path, String fileSize){
