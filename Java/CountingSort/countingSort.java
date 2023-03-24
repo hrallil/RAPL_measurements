@@ -42,7 +42,7 @@ public class Main {
 			sc.useDelimiter(", |\n");
 			int i = 0;
 			while(sc.hasNext()){
-				arr[i] = Integer.parseInt(sc.nextLine());
+				arr[i] = Integer.parseInt(sc.next());
 				i++;
 			}
 			sc.close();
