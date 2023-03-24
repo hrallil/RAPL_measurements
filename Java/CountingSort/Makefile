@@ -1,19 +1,36 @@
 run:
-	sudo java countingSort.java "arrays/100.csv" "100"
+	sudo java countingSort.java "../CSV/data/100.csv" "100"
+
+testMeasure: 
+	sudo modprobe msr
+	sudo ../../RAPL/main "java countingSort.java "../CSV/data/100.csv" "100" " CountingSort/results/test countingSort
 
 
 measure:
+	make randMeasure
+	make randMeasure
+	make bestMeasure
+
+randMeasure: # Random values measurement 
+	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	sudo ../../RAPL/main "java countingSort.java "arrays/25000.csv" "25000" " count25k-1M countingSort25000
-	sudo ../../RAPL/main "java countingSort.java "arrays/50000.csv" "50000" " count25k-1M countingSort50000
-	sudo ../../RAPL/main "java countingSort.java "arrays/75000.csv" "75000" " count25k-1M countingSort75000
-	sudo ../../RAPL/main "java countingSort.java "arrays/100000.csv" "100000" " count25k-1M countingSort100000
-	sudo ../../RAPL/main "java countingSort.java "arrays/200000.csv" "200000" " count25k-1M countingSort200000
-	sudo ../../RAPL/main "java countingSort.java "arrays/300000.csv" "300000" " count25k-1M countingSort300000
-	sudo ../../RAPL/main "java countingSort.java "arrays/400000.csv" "400000" " count25k-1M countingSort400000
-	sudo ../../RAPL/main "java countingSort.java "arrays/500000.csv" "500000" " count25k-1M countingSort500000
-	sudo ../../RAPL/main "java countingSort.java "arrays/600000.csv" "600000" " count25k-1M countingSort600000
-	sudo ../../RAPL/main "java countingSort.java "arrays/700000.csv" "700000" " count25k-1M countingSort700000
-	sudo ../../RAPL/main "java countingSort.java "arrays/800000.csv" "800000" " count25k-1M countingSort800000
-	sudo ../../RAPL/main "java countingSort.java "arrays/900000.csv" "900000" " count25k-1M countingSort900000
-	sudo ../../RAPL/main "java countingSort.java "arrays/1000000.csv" "1000000" " count25k-1M countingSort1000000
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 												\
+		sudo ../../RAPL/main "java countingSort.java "../CSV/data/random0-$$number.csv" "$$number" " CountingSort/results/randomCountingSort $$number; 		\
+	done
+	sudo ifconfig wlp4s0 up
+
+bestMeasure: #doesnt work yet, should do the best case
+	sudo ifconfig wlp4s0 down
+	sudo modprobe msr
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 												\
+		sudo ../../RAPL/main "java countingSort.java "../CSV/data/$$number.csv" "$$number" " CountingSort/results/bestCountingSort $$number; 				\
+	done
+	sudo ifconfig wlp4s0 up
+
+worstMeasure: #doesnt work yet, should do the worst case
+	sudo ifconfig wlp4s0 down
+	sudo modprobe msr
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 												\
+		sudo ../../RAPL/main "java countingSort.java "../CSV/data/$$number.csv" "$$number" " CountingSort/results/WorstCountingSort $$number; 				\
+	done
+	sudo ifconfig wlp4s0 up
