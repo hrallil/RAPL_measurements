@@ -45,7 +45,7 @@ public class QuickSort{
 	}
 
 	public static int partition(int[] arr, int low, int high){
-		int pivot = middleOfThree(arr[0], arr[(int)arr.length/2], arr[arr.length-1]);
+		int pivot = arr[high]; //middleOfThree(arr[0], arr[(int)arr.length/2], arr[arr.length-1]);
 		int leftwall = low;
 		int temp;
 		for(int i = low+1; i <= high;i++){
