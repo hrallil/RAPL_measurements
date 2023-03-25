@@ -63,6 +63,7 @@ public class QuickSort{
 		//swap(arr,pivot,leftwall);
 		return leftwall;
 	}
+	
 	//median of three
 	public static int middleOfThree(int a, int b, int c){
         // Checking for b
