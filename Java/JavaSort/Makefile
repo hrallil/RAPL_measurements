@@ -14,7 +14,7 @@ measure:
 randMeasure: # dont run tests: 75000 200000 300000 800000 900000
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	for number in 25000 50000  100000  400000 500000 600000 700000  1000000; do 																				\
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 													\
 		for i in 1 2 3 4 5 6 7 8 9 10; do 																														\
 			echo "Running: $$i"; 																																\
 			sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random$$i-$$number.csv" "$$number" " JavaSort/results/randomJavaSort random$$i-$$number; 		\
