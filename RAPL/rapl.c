@@ -291,12 +291,12 @@ void rapl_before(FILE * fp,int core)
 
   /* Despite documentation saying otherwise, it looks like */
   /* You can get DRAM readings on regular Haswell          */
-  if ((cpu_model==CPU_SANDYBRIDGE_EP) || (cpu_model==CPU_IVYBRIDGE_EP) ||
-  (cpu_model==CPU_HASWELL)) {
+//  if ((cpu_model==CPU_SANDYBRIDGE_EP) || (cpu_model==CPU_IVYBRIDGE_EP) ||
+//  (cpu_model==CPU_HASWELL)) {
      result=read_msr(fd,MSR_DRAM_ENERGY_STATUS);
      dram_before=(double)result*energy_units;
      // fprintf(fp,"DRAM energy before: %.6fJ\n",dram_before);
-  }
+//  }
 
 }
 
@@ -328,13 +328,13 @@ void rapl_after(FILE * fp , int core)
   else
     fprintf(fp," , ");
 
-  if ((cpu_model==CPU_SANDYBRIDGE_EP) || (cpu_model==CPU_IVYBRIDGE_EP) ||
-  (cpu_model==CPU_HASWELL)) {
+//  if ((cpu_model==CPU_SANDYBRIDGE_EP) || (cpu_model==CPU_IVYBRIDGE_EP) ||
+//  (cpu_model==CPU_HASWELL)) {
      result=read_msr(fd,MSR_DRAM_ENERGY_STATUS);
      dram_after=(double)result*energy_units;
      fprintf(fp,"%.18f, ",dram_after-dram_before);     // DRAM
-  }
-  else
-    fprintf(fp," , ");  
+//  }
+//  else
+//    fprintf(fp," , ");  
 
 }
