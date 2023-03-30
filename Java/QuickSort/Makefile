@@ -4,10 +4,10 @@ run:
 testMeasure: 
 	sudo modprobe msr
 	ifeq ($(wildcard ../CSV/data/test0-100.csv),)
-		echo "error with test0.csv";
+		$(info "error with test0.csv")
 	else
-		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/test0-100.csv" "100" " QuickSort/results/test Quicksort;
-		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/random1-25000.csv" "25000" " QuickSort/results/randomQuickSort random1-25000;
+		$(shell sudo ../../RAPL/main "java QuickSort.java "../CSV/data/test0-100.csv" "100" " QuickSort/results/test Quicksort)
+		$(shell sudo ../../RAPL/main "java QuickSort.java "../CSV/data/random1-25000.csv" "25000" " QuickSort/results/randomQuickSort random1-25000)
 	endif
 
 measure:
