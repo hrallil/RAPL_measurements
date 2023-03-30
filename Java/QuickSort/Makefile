@@ -3,13 +3,19 @@ run:
 
 testMeasure: 
 	sudo modprobe msr
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/test0-100.csv" "100" " QuickSort/results/test Quicksort
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/random1-25000.csv" "25000" " QuickSort/results/randomQuickSort random1-25000;
+	ifeq ($(wildcard ../CSV/data/test0-100.csv),)
+		echo "error with test0.csv";
+	else
+		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/test0-100.csv" "100" " QuickSort/results/test Quicksort;
+		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/random1-25000.csv" "25000" " QuickSort/results/randomQuickSort random1-25000;
+	endif
 
 measure:
 	make randMeasure
 	make randMeasure
 	make bestMeasure
+
+
 
 randMeasure: # dont run tests: 75000 200000 300000 800000 900000
 	sudo ifconfig wlp4s0 down
