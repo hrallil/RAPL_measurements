@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class QuickSort{
 	public static void main(String[] args){
-		int[] arr = {32,5,346,876,6789,976,678};//CSV_toArr(args[0], args[1]);
+		int[] arr = {3,1,9,8,7,6,5,4,3,2,1};//CSV_toArr(args[0], args[1]);
 
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
@@ -11,10 +11,11 @@ public class QuickSort{
 
 		quicksort(arr,1,arr.length-1);
 
-		System.out.println("Sorting ");
+		System.out.println("Sorting");
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
 		}
+		System.out.println("correctly sorted: " + testQuicksort(arr));
 	}
 
 	public static int[] CSV_toArr(String path, String fileSize){
@@ -39,7 +40,7 @@ public class QuickSort{
 
 	public static void quicksort(int[] arr, int low, int high){
 		if(low < high){
-			int pivotLocation = partition(arr,low,high);
+			int pivotLocation = partition(arr,low-1,high);
 			quicksort(arr,low,pivotLocation-1);
 			quicksort(arr,pivotLocation+1,high);
 		}
@@ -49,7 +50,7 @@ public class QuickSort{
 		int pivot = arr[high]; //middleOfThree(arr[0], arr[(int)arr.length/2], arr[arr.length-1]);
 		int leftwall = low - 1;
 		int temp;
-		for(int i = low; i < high-1;i++){
+		for(int i = low; i < high;i++){
 			if(arr[i] <= pivot){
 				leftwall ++;
 				temp = arr[i];
@@ -81,5 +82,15 @@ public class QuickSort{
 		int temp = arr[a];
 		arr[a] = arr[b];
 		arr[b] = temp;
+	}
+
+	public static boolean testQuicksort(int[] arr){
+		boolean correctness = true;
+		for (int i = 0; i < arr.length-1; i++) {
+			if(arr[i] > arr[i+1]){
+				correctness = false;
+			}
+		}
+		return correctness;
 	}
 }
