@@ -38,10 +38,10 @@ bestMeasure: #doesnt do anything significant yet
 	done
 	sudo ifconfig wlp4s0 up
 
-worstMeasure: #doesnt do anything significant yet
+worstMeasure: #runs javasort with the worst arrays for quicksort as input
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 													\
-		sudo ../../RAPL/main "java JavaSort.java "../CSV/data/$$number.csv" "$$number" " JavaSort/results/WorstJavaSort $$number; 								\
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 											\
+		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/reverseSorted0-$$number.csv" "$$number" " QuickSort/results/QuickSort worst-$$number-1; 	\
 	done
 	sudo ifconfig wlp4s0 up
