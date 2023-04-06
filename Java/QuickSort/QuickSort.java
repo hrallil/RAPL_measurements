@@ -3,17 +3,18 @@ import java.util.Scanner;
 
 public class QuickSort{
 	public static void main(String[] args){
-		int[] arr = CSV_toArr(args[0], args[1]);
-		/*for(int i = 0; i<arr.length; i++){
-			System.out.println(arr[i]);
-		}*/
+		int[] arr = {32,5,346,876,6789,976,678};//CSV_toArr(args[0], args[1]);
 
-		quicksort(arr,0,arr.length-1);
-
-		//System.out.println("Sorting " + args[0]);
-		/*for(int i = 0; i<arr.length; i++){
+		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
-		}*/
+		}
+
+		quicksort(arr,1,arr.length-1);
+
+		System.out.println("Sorting ");
+		for(int i = 0; i<arr.length; i++){
+			System.out.println(arr[i]);
+		}
 	}
 
 	public static int[] CSV_toArr(String path, String fileSize){
@@ -39,29 +40,29 @@ public class QuickSort{
 	public static void quicksort(int[] arr, int low, int high){
 		if(low < high){
 			int pivotLocation = partition(arr,low,high);
-			quicksort(arr,low,pivotLocation);
+			quicksort(arr,low,pivotLocation-1);
 			quicksort(arr,pivotLocation+1,high);
 		}
 	}
 
 	public static int partition(int[] arr, int low, int high){
 		int pivot = arr[high]; //middleOfThree(arr[0], arr[(int)arr.length/2], arr[arr.length-1]);
-		int leftwall = low;
+		int leftwall = low - 1;
 		int temp;
-		for(int i = low+1; i <= high;i++){
-			if(arr[i] < pivot){
+		for(int i = low; i < high-1;i++){
+			if(arr[i] <= pivot){
+				leftwall ++;
 				temp = arr[i];
 				arr[i] = arr[leftwall];
 				arr[leftwall] = temp;
 				//swap(arr,i,leftwall);
-				leftwall ++;
 			}
 		}
-		temp = pivot;
-		pivot = arr[leftwall];
-		arr[leftwall] = temp;
+		temp = arr[high];
+		arr[high] = arr[leftwall + 1];
+		arr[leftwall + 1] = temp;
 		//swap(arr,pivot,leftwall);
-		return leftwall;
+		return leftwall + 1;
 	}
 	
 	//median of three
