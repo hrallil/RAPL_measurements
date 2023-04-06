@@ -3,19 +3,19 @@ import java.util.Scanner;
 
 public class QuickSort{
 	public static void main(String[] args){
-		int[] arr = {3,1,9,8,7,6,5,4,3,2,1};//CSV_toArr(args[0], args[1]);
-
+		int[] arr = {3,1,9,8,7,6,5,4,3,2,1};//CSV_toArr(args[0], args[1]);//;
+		/*
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
 		}
-
+		 */
 		quicksort(arr,1,arr.length-1);
-
+		
 		System.out.println("Sorting");
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
 		}
-		System.out.println("correctly sorted: " + testQuicksort(arr));
+		System.out.println("Correctly sorted: " + testQuicksort(arr)); 
 	}
 
 	public static int[] CSV_toArr(String path, String fileSize){
@@ -53,15 +53,21 @@ public class QuickSort{
 		for(int i = low; i < high;i++){
 			if(arr[i] <= pivot){
 				leftwall ++;
+				swap(arr, leftwall, i);
+				/*
 				temp = arr[i];
 				arr[i] = arr[leftwall];
 				arr[leftwall] = temp;
+				*/
 				//swap(arr,i,leftwall);
 			}
 		}
+		swap(arr, high, leftwall + 1);
+		/* 
 		temp = arr[high];
 		arr[high] = arr[leftwall + 1];
 		arr[leftwall + 1] = temp;
+		*/
 		//swap(arr,pivot,leftwall);
 		return leftwall + 1;
 	}
