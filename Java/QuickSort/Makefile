@@ -17,35 +17,33 @@ testingIf:
 
 measure:
 	make randMeasure
-	make randMeasure
+	make worstMeasure
 	make bestMeasure
 
 
 
-randMeasure: # dont run tests: 75000 200000 300000 800000 900000
+randMeasure: # runs quicksort with random arrays as input
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	for number in 25000 50000  100000  400000 500000 600000 700000  1000000; do 																				\
-		for i in 1 2 3 4 5 6 7 8 9 10; do 																														\
-			echo "Running: $$i"; 																																\
-			sudo ../../RAPL/main "java QuickSort.java "../CSV/data/random$$i-$$number.csv" "$$number" " QuickSort/results/randomQuicksort random$$i-$$number; 	\
-		done 																																					\
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 																				\
+			echo "Running: $$number"; 																													\
+			sudo ../../RAPL/main "java QuickSort.java "../CSV/data/random1-$$number.csv" "$$number" " QuickSort/results/Quicksort random-$$number-1; 	\
 	done
 	sudo ifconfig wlp4s0 up
 
-bestMeasure: #doesnt do anything significant yet
+bestMeasure: #runs quicksort with the best arrays for quicksort as input
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 										\
-		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/$$number.csv" "$$number" " QuickSort/results/bestQuicksort $$number; 				\
+		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/$$number.csv" "$$number" " QuickSort/results/Quicksort $$number; 				\
 	done
 	sudo ifconfig wlp4s0 up
 
-worstMeasure: #doesnt do anything significant yet
+worstMeasure: #runs quicksort with the worst arrays for quicksort as input
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 										\
-		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/$$number.csv" "$$number" " QuickSort/results/WorstQuicksort $$number; 				\
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 											\
+		sudo ../../RAPL/main "java QuickSort.java "../CSV/data/reverseSorted0-$$number.csv" "$$number" " QuickSort/results/QuickSort worst-$$number-1; 	\
 	done
 	sudo ifconfig wlp4s0 up
 
