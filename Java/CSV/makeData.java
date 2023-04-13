@@ -28,6 +28,21 @@ public class makeData{
 				}
 				w.print(0);
 			}
+
+			if(type.equals("countingBest")){
+				for(int i = 0; i<arraySize- 1;i++){
+					w.print(r.nextInt(10) + ",");
+				}
+				w.print(r.nextInt(10));
+			}
+
+			if(type.equals("countingWorst")){
+				for(int i = 0; i<arraySize- 1;i++){
+					w.print(r.nextInt(100000000) + ",");
+				}
+				w.print(r.nextInt(100000000));	
+			}
+
 			if(type.equals("random") || type.equals("test") || type==null){
 				for(int i = 0; i<arraySize- 1;i++){
 					w.print(r.nextInt(Integer.MAX_VALUE) + ",");

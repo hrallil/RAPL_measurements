@@ -30,6 +30,12 @@ pcChoice:
 	done
 	sudo ifconfig wlp4s0 up
 
+tempRead:
+	sudo ifconfig wlp4s0 down
+	sudo modprobe msr
+	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random1-25000.csv" "25000" " JavaSort/results/tempJavaSort random1-25000;
+	sudo ifconfig wlp4s0 up
+
 bestMeasure: #doesnt do anything significant yet
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
