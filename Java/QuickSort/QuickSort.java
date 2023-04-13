@@ -1,20 +1,22 @@
 import java.io.*;
+import java.util.Random;
 import java.util.Scanner;
 
 public class QuickSort{
 	public static void main(String[] args){
-		int[] arr = {3,1,9,8,7,6,5,4,3,2,1,-10,0,-Integer.MAX_VALUE, Integer.MAX_VALUE+1, Integer.MAX_VALUE-1, Integer.MAX_VALUE};//CSV_toArr(args[0], args[1]);//;
+		int[] arr = CSV_toArr("F:\\git\\RAPL\\Java\\CSV\\data\\reverseSorted0-100000.csv", "100000");
+		//{3,1,9,8,7,6,5,4,3,2,1,-10,0,-Integer.MAX_VALUE, Integer.MAX_VALUE+1, Integer.MAX_VALUE-1, Integer.MAX_VALUE};//CSV_toArr(args[0], args[1]);//;
 		/*
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
 		}
 		 */
-		quicksort(arr,1,arr.length-1);
-		/**/
+		quicksort(arr,0,arr.length-1);
+		/*
 		System.out.println("Sorting");
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
-		}
+		}*/
 		System.out.println("Correctly sorted: " + testQuicksort(arr)); 
 		 
 	}
@@ -41,40 +43,35 @@ public class QuickSort{
 
 	public static void quicksort(int[] arr, int low, int high){
 		if(low < high){
-			int pivotLocation = partition(arr,low-1,high);
+			int pivotLocation = randPartition(arr,low,high);
 			quicksort(arr,low,pivotLocation-1);
 			quicksort(arr,pivotLocation+1,high);
 		}
 	}
 
+	public static int randPartition(int[] arr, int low, int high){
+		//Random r = new Random();
+		int pivotIndex = low + (int) (Math.random() * (high - low + 1));
+		//int pivotIndex = r.nextInt(high-low + 1) + low;
+		swap(arr, pivotIndex, high);
+		return partition(arr, low, high);
+	} 
+
 	public static int partition(int[] arr, int low, int high){
-		int pivot = arr[high]; //middleOfThree(arr[0], arr[(int)arr.length/2], arr[arr.length-1]);
+		int pivot = arr[high]; //medianOfThree(arr[0], arr[(int)arr.length/2], arr[arr.length-1]);
 		int leftwall = low - 1;
-		int temp;
 		for(int i = low; i < high;i++){
-			if(arr[i] <= pivot){
+			if(arr[i] < pivot){
 				leftwall ++;
 				swap(arr, leftwall, i);
-				/*
-				temp = arr[i];
-				arr[i] = arr[leftwall];
-				arr[leftwall] = temp;
-				*/
-				//swap(arr,i,leftwall);
 			}
 		}
-		swap(arr, high, leftwall + 1);
-		/* 
-		temp = arr[high];
-		arr[high] = arr[leftwall + 1];
-		arr[leftwall + 1] = temp;
-		*/
-		//swap(arr,pivot,leftwall);
+		swap(arr, leftwall + 1, high);
 		return leftwall + 1;
 	}
 	
 	//median of three
-	public static int middleOfThree(int a, int b, int c){
+	public static int medianOfThree(int a, int b, int c){
         // Checking for b
         if ((a < b && b < c) || (c < b && b < a))
             return b;
@@ -100,4 +97,6 @@ public class QuickSort{
 		}
 		return correctness;
 	}
+
+	
 }
