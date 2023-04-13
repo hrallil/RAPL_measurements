@@ -3,20 +3,20 @@ import java.util.Scanner;
 
 public class QuickSort{
 	public static void main(String[] args){
-		int[] arr = CSV_toArr(args[0], args[1]);//;{3,1,9,8,7,6,5,4,3,2,1}
+		int[] arr = {3,1,9,8,7,6,5,4,3,2,1,-10,0,-Integer.MAX_VALUE, Integer.MAX_VALUE+1, Integer.MAX_VALUE-1, Integer.MAX_VALUE};//CSV_toArr(args[0], args[1]);//;
 		/*
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
 		}
 		 */
 		quicksort(arr,1,arr.length-1);
-		/*
+		/**/
 		System.out.println("Sorting");
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
 		}
 		System.out.println("Correctly sorted: " + testQuicksort(arr)); 
-		 */
+		 
 	}
 
 	public static int[] CSV_toArr(String path, String fileSize){
