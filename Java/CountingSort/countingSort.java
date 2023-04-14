@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileWriter;
 
 public class CountingSort {
     	public static void main(String[] args) {
@@ -11,7 +12,26 @@ public class CountingSort {
         	for (int i = 0; i < n-1; i++){
             		if (arr[i] > max) max = arr[i];
         	}
+		
+		Runtime rt = Runtime.getRuntime();
+		long totalMemBefore = rt.totalMemory();
+		long freeMemBefore  = rt.freeMemory();
+		long usedMemBefore  = totalMemBefore - freeMemBefore;
+		
         	arr = countingSort(arr, max, n);
+//		
+		long totalMemAfter = rt.totalMemory();
+		long freeMemAfter  = rt.freeMemory();
+		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
+		File f = new File("./results/CountingSortMemory-PC#.csv"); //replace # with PC number
+		try{
+			FIleWriter fw = new FileWriter(f, true);
+			fw.write(usedMemAfter+",");
+			fw.close();
+		} close (Exception e){
+			System.out.println(e);
+		}
+		
 //		System.out.println("after:  "+ Arrays.toString(arr));
     	}
 
