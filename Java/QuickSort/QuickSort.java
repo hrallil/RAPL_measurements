@@ -13,15 +13,15 @@ public class QuickSort{
 		 */
 		
 		Runtime rt = Runtime.getRuntime();
-		long totalMemBefore = rt.totalMemory();
-		long freeMemBefore  = rt.freeMemory();
-		long usedMemBefore  = totalMemBefore - freeMemBefore;
+		//long totalMemBefore = rt.totalMemory();
+		//long freeMemBefore  = rt.freeMemory();
+		//long usedMemBefore  = totalMemBefore - freeMemBefore;
 		
 		quicksort(arr,0,arr.length-1);
 		
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
-		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
+		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
 		File f = new File("./results/QuickSortMemory-PC#.csv"); //replace # with PC number
 		try{
 			FileWriter fw = new FileWriter(f, true);
