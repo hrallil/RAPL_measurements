@@ -45,7 +45,7 @@ public class makeData{
 
 			if(type.equals("mergeWorst")){
 				int[] arr = new int[arraySize];
-				
+
 				for (int i = 0; i < arraySize; i++) {
 					arr[i] = i;
 				}
