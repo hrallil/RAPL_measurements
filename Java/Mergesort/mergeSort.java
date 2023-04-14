@@ -5,9 +5,9 @@ import java.io.FileWriter;
 public class MergeSort{
 	public static void main(String[] args){
 		Runtime rt = Runtime.getRuntime();
-		long totalMemBefore = rt.totalMemory();
-		long freeMemBefore  = rt.freeMemory();
-		long usedMemBefore  = totalMemBefore - freeMemBefore;
+		//long totalMemBefore = rt.totalMemory();
+		//long freeMemBefore  = rt.freeMemory();
+		//long usedMemBefore  = totalMemBefore - freeMemBefore;
 		
 		int[] arr = CSV_toArr(args[0], args[1]); //{9, 3, 5, 7, 2, 8, 10, 1, 4, 6};
 		//System.out.println("before: "+ Arrays.toString(arr));
@@ -16,7 +16,7 @@ public class MergeSort{
 		
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
-		long usedMemAfter  = (totalMemAfter - freeMemAfter) - usedMemBefore;
+		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
 		File f = new File("./results/MergeSortMemory-PC#.csv"); //replace # with PC number
 		try{
 			FileWriter fw = new FileWriter(f, true);
