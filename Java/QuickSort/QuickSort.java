@@ -22,7 +22,7 @@ public class QuickSort{
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
 		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
-		File f = new File("./results/BubbleSortMemory-PC#.csv"); //replace # with PC number
+		File f = new File("./results/QuickSortMemory-PC#.csv"); //replace # with PC number
 		try{
 			FileWriter fw = new FileWriter(f, true);
 			fw.write(usedMemAfter+",");
