@@ -25,7 +25,7 @@ public class CountingSort {
 		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
 		File f = new File("./results/CountingSortMemory-PC#.csv"); //replace # with PC number
 		try{
-			FIleWriter fw = new FileWriter(f, true);
+			FileWriter fw = new FileWriter(f, true);
 			fw.write(usedMemAfter+",");
 			fw.close();
 		} catch (Exception e){
