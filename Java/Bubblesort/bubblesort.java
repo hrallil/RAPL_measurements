@@ -22,7 +22,7 @@ public class bubblesort{
 			FIleWriter fw = new FileWriter(f, true);
 			fw.write(usedMemAfter+",");
 			fw.close();
-		} close (Exception e){
+		} catch (Exception e){
 			System.out.println(e);
 		}
 		//showarr(arr);
