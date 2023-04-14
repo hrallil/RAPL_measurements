@@ -16,13 +16,13 @@ input:
 
 input-countingBest:
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 	\
-		java makeData.java $$number countingBest 0; 																	\
+		java makeData.java $$number countingBest 0; 															\
 	done
 
 
 input-countingWorst:
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 	\
-		java makeData.java $$number countingWorst 0; 																	\
+		java makeData.java $$number countingWorst 0; 															\
 	done
 
 input-test:

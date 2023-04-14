@@ -1,5 +1,4 @@
-import java.io.*;
-import java.util.Random;
+import java.io.File;
 import java.util.Scanner;
 
 public class QuickSort{
@@ -11,14 +10,15 @@ public class QuickSort{
 			System.out.println(arr[i]);
 		}
 		 */
+
 		quicksort(arr,0,arr.length-1);
-		/**/
+
+		/*
 		System.out.println("Sorting");
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
 		}
-		System.out.println("Correctly sorted: " + testQuicksort(arr)); 
-		 
+		System.out.println("Correctly sorted: " + testQuicksort(arr)); */
 	}
 
 	public static int[] CSV_toArr(String path, String fileSize){
