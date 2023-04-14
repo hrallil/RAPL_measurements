@@ -8,15 +8,15 @@ public class JavaSort{
 		int[] arr = CSV_toArr(args[0],args[1]);
 		
 		Runtime rt = Runtime.getRuntime();
-		long totalMemBefore = rt.totalMemory();
-		long freeMemBefore  = rt.freeMemory();
-		long usedMemBefore  = totalMemBefore - freeMemBefore;
+		//long totalMemBefore = rt.totalMemory();
+		//long freeMemBefore  = rt.freeMemory();
+		//long usedMemBefore  = totalMemBefore - freeMemBefore;
 		
 		Arrays.sort(arr);
 		
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
-		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
+		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
 		File f = new File("./results/JavaSortMemory-PC#.csv"); //replace # with PC number
 		try{
 			FileWriter fw = new FileWriter(f, true);
