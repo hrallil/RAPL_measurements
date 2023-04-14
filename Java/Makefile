@@ -11,5 +11,5 @@ measureAll:
 	$(MAKE) -C JavaSort measure
 	$(MAKE) -C CountingSort measure
 	$(MAKE) -C Bubblesort measure
-	$(MAKE) -C java QuickSort measure
+	$(MAKE) -C QuickSort measure
 	$(MAKE) -C Idle measure

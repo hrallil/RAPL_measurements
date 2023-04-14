@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class QuickSort{
 	public static void main(String[] args){
-		int[] arr = CSV_toArr("F:\\git\\RAPL\\Java\\CSV\\data\\reverseSorted0-100000.csv", "100000");
+		int[] arr = CSV_toArr("F:\\git\\RAPL\\Java\\CSV\\data\\test0-100.csv", "100");
 		//{3,1,9,8,7,6,5,4,3,2,1,-10,0,-Integer.MAX_VALUE, Integer.MAX_VALUE+1, Integer.MAX_VALUE-1, Integer.MAX_VALUE};//CSV_toArr(args[0], args[1]);//;
 		/*
 		for(int i = 0; i<arr.length; i++){
@@ -12,11 +12,11 @@ public class QuickSort{
 		}
 		 */
 		quicksort(arr,0,arr.length-1);
-		/*
+		/**/
 		System.out.println("Sorting");
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
-		}*/
+		}
 		System.out.println("Correctly sorted: " + testQuicksort(arr)); 
 		 
 	}
@@ -43,7 +43,7 @@ public class QuickSort{
 
 	public static void quicksort(int[] arr, int low, int high){
 		if(low < high){
-			int pivotLocation = randPartition(arr,low,high);
+			int pivotLocation = partition(arr,low,high);
 			quicksort(arr,low,pivotLocation-1);
 			quicksort(arr,pivotLocation+1,high);
 		}
@@ -58,7 +58,7 @@ public class QuickSort{
 	} 
 
 	public static int partition(int[] arr, int low, int high){
-		int pivot = arr[high]; //medianOfThree(arr[0], arr[(int)arr.length/2], arr[arr.length-1]);
+		int pivot = arr[high]; //medianOfThree(arr[low], arr[(int)high/2], arr[high-1]); 
 		int leftwall = low - 1;
 		for(int i = low; i < high;i++){
 			if(arr[i] < pivot){
@@ -97,6 +97,4 @@ public class QuickSort{
 		}
 		return correctness;
 	}
-
-	
 }
