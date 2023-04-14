@@ -1,4 +1,5 @@
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,14 +12,30 @@ public class QuickSort{
 			System.out.println(arr[i]);
 		}
 		 */
+		Runtime rt = Runtime.getRuntime();
+		long totalMemBefore = rt.totalMemory();
+		long freeMemBefore  = rt.freeMemory();
+		long usedMemBefore  = totalMemBefore - freeMemBefore;
+		
 		quicksort(arr,0,arr.length-1);
-		/**/
+		long totalMemAfter = rt.totalMemory();
+		long freeMemAfter  = rt.freeMemory();
+		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
+		File f = new File("./results/quicksortMemory-PC#.csv"); //replace # with PC number
+		try{
+			FIleWriter fw = new FileWriter(f, true);
+			fw.write(usedMemAfter+",");
+			fw.close();
+		} close (Exception e){
+			System.out.println(e);
+		}
+		/*
 		System.out.println("Sorting");
 		for(int i = 0; i<arr.length; i++){
 			System.out.println(arr[i]);
 		}
 		System.out.println("Correctly sorted: " + testQuicksort(arr)); 
-		 
+		*/
 	}
 
 	public static int[] CSV_toArr(String path, String fileSize){
