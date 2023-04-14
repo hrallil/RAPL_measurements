@@ -1,13 +1,30 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;
 public class bubblesort{
 	//main mehtod
 	public static void main(String[] args ){
 		int[] arr =  CSV_toArr(args[0],args[1]);
 		//showarr(arr);
-
+		
+		Runtime rt = Runtime.getRuntime();
+		long totalMemBefore = rt.totalMemory();
+		long freeMemBefore  = rt.freeMemory();
+		long usedMemBefore  = totalMemBefore - freeMemBefore;
+		
 		bubblesort(arr);
 
+		long totalMemAfter = rt.totalMemory();
+		long freeMemAfter  = rt.freeMemory();
+		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
+		File f = new File("./results/BubbleSortMemory-PC#.csv"); //replace # with PC number
+		try{
+			FIleWriter fw = new FileWriter(f, true);
+			fw.write(usedMemAfter+",");
+			fw.close();
+		} close (Exception e){
+			System.out.println(e);
+		}
 		//showarr(arr);
 	}
 
