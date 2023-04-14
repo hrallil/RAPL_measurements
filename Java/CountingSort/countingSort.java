@@ -14,15 +14,15 @@ public class CountingSort {
         	}
 		
 		Runtime rt = Runtime.getRuntime();
-		long totalMemBefore = rt.totalMemory();
-		long freeMemBefore  = rt.freeMemory();
-		long usedMemBefore  = totalMemBefore - freeMemBefore;
+		//long totalMemBefore = rt.totalMemory();
+		//long freeMemBefore  = rt.freeMemory();
+		//long usedMemBefore  = totalMemBefore - freeMemBefore;
 		
         	arr = countingSort(arr, max, n);
 //		
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
-		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
+		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
 		File f = new File("./results/CountingSortMemory-PC#.csv"); //replace # with PC number
 		try{
 			FileWriter fw = new FileWriter(f, true);
