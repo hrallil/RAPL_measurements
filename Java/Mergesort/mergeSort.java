@@ -1,12 +1,31 @@
-//import java.util.Arrays;
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileWriter;
 
 public class MergeSort{
 	public static void main(String[] args){
 		int[] arr = CSV_toArr(args[0], args[1]); //{9, 3, 5, 7, 2, 8, 10, 1, 4, 6};
 		//System.out.println("before: "+ Arrays.toString(arr));
+		
+		Runtime rt = Runtime.getRuntime();
+		long totalMemBefore = rt.totalMemory();
+		long freeMemBefore  = rt.freeMemory();
+		long usedMemBefore  = totalMemBefore - freeMemBefore;
+		
 		mergeSort(arr, 0, arr.length -1);
+		
+		long totalMemAfter = rt.totalMemory();
+		long freeMemAfter  = rt.freeMemory();
+		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
+		File f = new File("./results/BubbleSortMemory-PC#.csv"); //replace # with PC number
+		try{
+			FIleWriter fw = new FileWriter(f, true);
+			fw.write(usedMemAfter+",");
+			fw.close();
+		} close (Exception e){
+			System.out.println(e);
+		}
+		
 		//System.out.println("after: "+ Arrays.toString(arr));
 	}
 
