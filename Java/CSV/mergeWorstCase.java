@@ -62,15 +62,18 @@ class MergeWorstCase
     
     public static void main(String args[])
     {
-        int[] arr = CSV_toArr("C:\\Users\\Kristina\\Documents\\GitHub\\RAPL_measurements\\Java\\CSV\\data\\test0-100.csv", "100");
+        int[] arr = CSV_toArr(args[0], args[1]);
         Arrays.sort(arr);
+        /* 
         for (int i= 0; i<arr.length; i++);{
             System.out.println();
-        }
+        }*/
 
         divide(arr);
+        /*
         System.out.println("The worst case time complexity of this array is: ");
-        print(arr);
+        print(arr); */
+
 
                   
     }
