@@ -17,9 +17,9 @@ public class MergeSort{
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
 		long usedMemAfter  = (totalMemBefore - freeMemBefore) - usedMemBefore;
-		File f = new File("./results/BubbleSortMemory-PC#.csv"); //replace # with PC number
+		File f = new File("./results/MergeSortMemory-PC#.csv"); //replace # with PC number
 		try{
-			FIleWriter fw = new FileWriter(f, true);
+			FileWriter fw = new FileWriter(f, true);
 			fw.write(usedMemAfter+",");
 			fw.close();
 		} catch (Exception e){
