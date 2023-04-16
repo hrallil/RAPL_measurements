@@ -1,5 +1,3 @@
-
-
 main : main.c rapl.o
 	gcc -O2 -Wall -o main main.c rapl.o -lm
 	chmod 777 main

@@ -7,17 +7,17 @@ testMeasure:
 
 measure:
 	make randMeasure
-	make randMeasure
+	make worstMeasure
 	make bestMeasure
 
 randMeasure: # dont run tests: 75000 200000 300000 800000 900000
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	for number in 25000 50000  100000  400000 500000; do 																											\
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000; do 																											\
 		for i in 1 2 3 4 5 6 7 8 9 10; do 																															\
 			sudo ../../RAPL/main "java bubblesort.java "../CSV/data/random$$i-$$number.csv" "$$number" " Bubblesort/results/randomBubblesort random$$i-$$number; 	\
 			echo "Running random: Array size: $$number iteration: $$i"; 																							\
-		done 																																						\
+		done																																						\
 	done
 	sudo ifconfig wlp4s0 up
 
