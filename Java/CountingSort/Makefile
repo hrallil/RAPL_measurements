@@ -14,20 +14,22 @@ measure:
 randMeasure: # Random values measurement 
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 														 \
-		sudo ../../RAPL/main "java countingSort.java "../CSV/data/random1-$$number.csv" "$$number" " CountingSort/results/countingSort-PC{NUMBER} random-$$number-1; \
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 														 	  \
+		for i in 1 2 3 4 5 6 7 8 9 10; do 																																  \
+			sudo ../../RAPL/main "java countingSort.java "../CSV/data/random$$i-$$number.csv" "$$number" " CountingSort/results/countingSort-PC{NUMBER} random$$i-$$number-1; \
+		done																																							  \
 	done
 	sudo ifconfig wlp4s0 up
 
-bestMeasure: #doesnt work yet, should do the best case
+bestMeasure: #measure the energy consumption of the best case input for counting sort
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 																\
-		sudo ../../RAPL/main "java countingSort.java "../CSV/data/countingBest0-$$number.csv" "$$number" " CountingSort/results/countingSort-PC{NUMBER} best-$$number-1; 	\
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 															 \
+		sudo ../../RAPL/main "java countingSort.java "../CSV/data/countingBest0-$$number.csv" "$$number" " CountingSort/results/countingSort-PC{NUMBER} best-$$number-1; \
 	done
 	sudo ifconfig wlp4s0 up
 
-worstMeasure: #doesnt work yet, should do the worst case
+worstMeasure: #measure the energy consumption of the worst case input for counting sort
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 															   \
