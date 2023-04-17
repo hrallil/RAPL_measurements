@@ -7,13 +7,13 @@ public class JavaSort{
 	public static void main(String[] args){
 		int[] arr = CSV_toArr(args[0],args[1]);
 		
-		Runtime rt = Runtime.getRuntime();
 		//long totalMemBefore = rt.totalMemory();
 		//long freeMemBefore  = rt.freeMemory();
 		//long usedMemBefore  = totalMemBefore - freeMemBefore;
 		
 		Arrays.sort(arr);
 		
+		Runtime rt = Runtime.getRuntime();
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
 		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
