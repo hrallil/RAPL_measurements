@@ -1,9 +1,9 @@
-
-
 #include <stdio.h>
 #include <time.h>
 #include <math.h>
 #include <string.h>
+#include <sys/time.h> /* for gettimeofday() */
+#include <stdlib.h>   /* for system() */
 #include "rapl.h"
 
 #define RUNTIME 1
@@ -11,7 +11,7 @@
 
 int main (int argc, char **argv)
 { char command[500]="",language[500]="", test[500]="", path[500]="";
-  int  ntimes = 400;
+  int  ntimes = 1; //nr of runs per algo array
   int  core = 0;
   int  i=0;
 
@@ -19,12 +19,14 @@ int main (int argc, char **argv)
   //clock_t begin, end;
   double time_spent;
   struct timeval tvb,tva;
+  int temp;
 #endif
 
   FILE * fp;
+  FILE * fptemp;
 
   //Run command
-//  strcpy(command, "./" );
+  //strcpy(command, "./" );
   strcat(command,argv[1]);
   //Language name
   strcpy(path,"../");
@@ -38,8 +40,12 @@ int main (int argc, char **argv)
 
   //ntimes = atoi (argv[2]);
 
-
+  //define pointers
+  //append to results csv
   fp = fopen(path,"a");
+
+  //read temp file
+  fptemp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
 
   rapl_init(core);
 
@@ -50,16 +56,16 @@ int main (int argc, char **argv)
  	printf("%d", i);
     	fprintf(fp,"%s,",test);
 
-
 		#ifdef RUNTIME
-		        //begin = clock();
+		    //begin = clock();
 				gettimeofday(&tvb,0);
 		#endif
 
+  //calls function in rapl.c
 	rapl_before(fp,core);
 
-	        system(command);
-
+		system(command);
+  
 	rapl_after(fp,core);
 
 		#ifdef RUNTIME
@@ -68,16 +74,29 @@ int main (int argc, char **argv)
 			gettimeofday(&tva,0);
 			time_spent = (tva.tv_sec-tvb.tv_sec)*1000000 + tva.tv_usec-tvb.tv_usec;
 			time_spent = time_spent / 1000;
+  //printf("happy1");
+  //fflush(stdout);
+			fscanf(fptemp, "%d", &temp);
+			
+
+  //printf("happy2");
+  //fflush(stdout);
 		#endif
 
 
-		#ifdef RUNTIME	
+		#ifdef RUNTIME
+      // divide by 1000
+      temp = temp / 1000;
+			fprintf(fp, "%d", temp);
+ // printf("happy3");
+ //fflush(stdout);
 			fprintf(fp," %G \n",time_spent);
 		#endif	
     }
 
-
+  //closes stream and underlying file
   fclose(fp);
+  //any unwritten data in stream output buffer is written to the terminal
   fflush(stdout);
 
   return 0;
