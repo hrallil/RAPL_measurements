@@ -87,10 +87,10 @@ int main (int argc, char **argv)
 		#ifdef RUNTIME
       // divide by 1000
       temp = temp / 1000;
-			fprintf(fp, "%d", temp);
+			fprintf(fp, "%d, ", temp); 
  // printf("happy3");
  //fflush(stdout);
-			fprintf(fp," %G \n",time_spent);
+			fprintf(fp, "%G \n", time_spent);
 		#endif	
     }
 
