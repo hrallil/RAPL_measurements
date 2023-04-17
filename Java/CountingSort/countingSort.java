@@ -13,13 +13,13 @@ public class CountingSort {
             		if (arr[i] > max) max = arr[i];
         	}
 		
-		Runtime rt = Runtime.getRuntime();
 		//long totalMemBefore = rt.totalMemory();
 		//long freeMemBefore  = rt.freeMemory();
 		//long usedMemBefore  = totalMemBefore - freeMemBefore;
 		
         	arr = countingSort(arr, max, n);
 //		
+		Runtime rt = Runtime.getRuntime();
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
 		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
