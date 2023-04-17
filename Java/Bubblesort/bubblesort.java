@@ -7,13 +7,13 @@ public class bubblesort{
 		int[] arr =  CSV_toArr(args[0],args[1]);
 		//showarr(arr);
 		
-		Runtime rt = Runtime.getRuntime();
 		//long totalMemBefore = rt.totalMemory();
 		//long freeMemBefore  = rt.freeMemory();
 		//long usedMemBefore  = totalMemBefore - freeMemBefore;
 		
 		bubblesort(arr);
-
+		
+		Runtime rt = Runtime.getRuntime();
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
 		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
