@@ -4,7 +4,6 @@ import java.io.FileWriter;
 
 public class MergeSort{
 	public static void main(String[] args){
-		Runtime rt = Runtime.getRuntime();
 		//long totalMemBefore = rt.totalMemory();
 		//long freeMemBefore  = rt.freeMemory();
 		//long usedMemBefore  = totalMemBefore - freeMemBefore;
@@ -14,6 +13,7 @@ public class MergeSort{
 		
 		mergeSort(arr, 0, arr.length -1);
 		
+		Runtime rt = Runtime.getRuntime();
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
 		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
