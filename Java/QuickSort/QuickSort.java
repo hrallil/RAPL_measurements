@@ -12,13 +12,13 @@ public class QuickSort{
 		}
 		 */
 		
-		Runtime rt = Runtime.getRuntime();
 		//long totalMemBefore = rt.totalMemory();
 		//long freeMemBefore  = rt.freeMemory();
 		//long usedMemBefore  = totalMemBefore - freeMemBefore;
 		
 		quicksort(arr,0,arr.length-1);
 		
+		Runtime rt = Runtime.getRuntime();
 		long totalMemAfter = rt.totalMemory();
 		long freeMemAfter  = rt.freeMemory();
 		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
