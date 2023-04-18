@@ -63,6 +63,20 @@ public class makeData{
 				}
 				w.print(r.nextInt(Integer.MAX_VALUE));
 			}
+			
+			
+			if(type.equals("QuickBest")){
+				int size = 1000000;
+        			int[] arr = new int[size];
+        			for (int i = 0; i < size; i++) arr[i] = i;
+				
+				bestCaseQuick(arr, 0, size-1);
+				
+				for(int i = 0; i<arraySize -1;i++){
+					w.print(arr[i]) + ",");
+				}
+				w.print(arr[arraySize-1]);
+			}
 
 			w.close();
 		}
@@ -77,6 +91,15 @@ public class makeData{
                 arr[i]=left[i];
         for(j=0;j<right.length;j++,i++)
                 arr[i]=right[j];
+    }
+	
+    public static void bestCaseQuick(int[] arr,int start, int end){
+        if(start < end) {
+            int mid = start + (end - start)/2;
+            bestCase(arr, start, mid-1);
+            bestCase(arr, mid+1, end);
+            swap(arr, mid, end);
+        }
     }
 
     //Pass a sorted array here to find specific distribution for worst case 
