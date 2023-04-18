@@ -33,7 +33,7 @@ int main (int argc, char **argv)
 
 
   strcpy(language,argv[2]);
-  strcat(language,"csv");
+  strcat(language,".csv");
   strcat(path,language);
   //Test name
   strcpy(test,argv[3]);
@@ -43,17 +43,27 @@ int main (int argc, char **argv)
   //define pointers
   //append to results csv
   fp = fopen(path,"a");
-  if (fp == NULL)
+  // if (fp == NULL)
+  //   {
+  //       printf("%s failed to open.", path);
+  //       //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
+  //       exit(0);
+  //   }
+  //printf("happy1");
+  //fflush(stdout);
+  //read temp file
+  //fptemp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
+  fptemp = fopen("/sys/class/thermal/thermal_zone0/tem", "r");
+  if (fptemp == NULL)
     {
-        printf("%s failed to open.", path);
+        printf("%s failed to open.", fptemp);
         //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
         exit(0);
     }
+    
   printf("happy1");
   fflush(stdout);
-  //read temp file
-  fptemp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
-
+  
   rapl_init(core);
 
   //fprintf(fp,"Package , CPU , GPU , DRAM? , Time (sec) \n");
