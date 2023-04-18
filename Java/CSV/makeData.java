@@ -66,11 +66,10 @@ public class makeData{
 			
 			
 			if(type.equals("quickBest")){
-				int size = 1000000;
-        			int[] arr = new int[size];
-        			for (int i = 0; i < size; i++) arr[i] = i;
+        			int[] arr = new int[arraySize];
+        			for (int i = 0; i < arraySize; i++) arr[i] = i;
 				
-				bestCaseQuick(arr, 0, size-1);
+				bestCaseQuick(arr, 0, arraySize-1);
 				
 				for(int i = 0; i<arraySize -1;i++){
 					w.print(arr[i]) + ",");
