@@ -100,6 +100,12 @@ public class makeData{
             swap(arr, mid, end);
         }
     }
+	
+    public static void swap(int[] arr, int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 
     //Pass a sorted array here to find specific distribution for worst case 
     public static void divide(int[] arr) { 
