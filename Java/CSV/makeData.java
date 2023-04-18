@@ -72,7 +72,7 @@ public class makeData{
 				bestCaseQuick(arr, 0, arraySize-1);
 				
 				for(int i = 0; i<arraySize -1;i++){
-					w.print(arr[i]) + ",");
+					w.print(arr[i] + ",");
 				}
 				w.print(arr[arraySize-1]);
 			}
@@ -95,10 +95,16 @@ public class makeData{
     public static void bestCaseQuick(int[] arr,int start, int end){
         if(start < end) {
             int mid = start + (end - start)/2;
-            bestCase(arr, start, mid-1);
-            bestCase(arr, mid+1, end);
+            bestCaseQuick(arr, start, mid-1);
+            bestCaseQuick(arr, mid+1, end);
             swap(arr, mid, end);
         }
+    }
+	
+    public static void swap(int[] arr, int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     //Pass a sorted array here to find specific distribution for worst case 
