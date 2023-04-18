@@ -11,7 +11,7 @@
 
 int main (int argc, char **argv)
 { char command[500]="",language[500]="", test[500]="", path[500]="";
-  int  ntimes = 1; //nr of runs per algo array
+  int  ntimes = 10; //nr of runs per algo array
   int  core = 0;
   int  i=0;
 
