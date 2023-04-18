@@ -38,29 +38,20 @@ int main (int argc, char **argv)
   //Test name
   strcpy(test,argv[3]);
 
-  //ntimes = atoi (argv[2]);
-
   //define pointers
   //append to results csv
   fp = fopen(path,"a");
-  // if (fp == NULL)
-  //   {
-  //       printf("%s failed to open.", path);
-  //       //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
-  //       exit(0);
-  //   }
-  //printf("happy1");
-  //fflush(stdout);
+
   //read temp file
-  //fptemp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
-  fptemp = fopen("/sys/class/thermal/thermal_zone0/tem", "r");
+  fptemp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
+  //fptemp = fopen("/sys/class/thermal/thermal_zone0/tem", "r"); error test
   if (fptemp == NULL)
     {
         printf("%s failed to open.", fptemp);
         //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
         exit(0);
     }
-    
+
   printf("happy1");
   fflush(stdout);
   
