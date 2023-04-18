@@ -65,7 +65,7 @@ public class makeData{
 			}
 			
 			
-			if(type.equals("QuickBest")){
+			if(type.equals("quickBest")){
 				int size = 1000000;
         			int[] arr = new int[size];
         			for (int i = 0; i < size; i++) arr[i] = i;
