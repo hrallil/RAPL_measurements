@@ -33,7 +33,7 @@ int main (int argc, char **argv)
 
 
   strcpy(language,argv[2]);
-  strcat(language,".csv");
+  strcat(language,"csv");
   strcat(path,language);
   //Test name
   strcpy(test,argv[3]);
