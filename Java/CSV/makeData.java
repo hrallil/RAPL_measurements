@@ -72,7 +72,7 @@ public class makeData{
 				bestCaseQuick(arr, 0, arraySize-1);
 				
 				for(int i = 0; i<arraySize -1;i++){
-					w.print(arr[i]) + ",");
+					w.print(arr[i] + ",");
 				}
 				w.print(arr[arraySize-1]);
 			}
