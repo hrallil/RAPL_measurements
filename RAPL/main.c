@@ -43,7 +43,14 @@ int main (int argc, char **argv)
   //define pointers
   //append to results csv
   fp = fopen(path,"a");
-
+  if (fp == NULL)
+    {
+        printf("%s failed to open.", path);
+        //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
+        exit(0);
+    }
+  printf("happy1");
+  fflush(stdout);
   //read temp file
   fptemp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
 
@@ -74,28 +81,27 @@ int main (int argc, char **argv)
 			gettimeofday(&tva,0);
 			time_spent = (tva.tv_sec-tvb.tv_sec)*1000000 + tva.tv_usec-tvb.tv_usec;
 			time_spent = time_spent / 1000;
+
   //printf("happy1");
   //fflush(stdout);
 			fscanf(fptemp, "%d", &temp);
-			
-
   //printf("happy2");
   //fflush(stdout);
 		#endif
 
-
 		#ifdef RUNTIME
-      // divide by 1000
       temp = temp / 1000;
 			fprintf(fp, "%d, ", temp); 
  // printf("happy3");
  //fflush(stdout);
+
 			fprintf(fp, "%G \n", time_spent);
 		#endif	
     }
 
   //closes stream and underlying file
   fclose(fp);
+  fclose(fptemp);
   //any unwritten data in stream output buffer is written to the terminal
   fflush(stdout);
 
