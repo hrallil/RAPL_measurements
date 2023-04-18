@@ -95,8 +95,8 @@ public class makeData{
     public static void bestCaseQuick(int[] arr,int start, int end){
         if(start < end) {
             int mid = start + (end - start)/2;
-            bestCase(arr, start, mid-1);
-            bestCase(arr, mid+1, end);
+            bestCaseQuick(arr, start, mid-1);
+            bestCaseQuick(arr, mid+1, end);
             swap(arr, mid, end);
         }
     }
