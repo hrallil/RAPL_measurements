@@ -47,7 +47,7 @@ int main (int argc, char **argv)
   //fptemp = fopen("/sys/class/thermal/thermal_zone0/tem", "r"); error test
   if (fptemp == NULL)
     {
-        printf("%s failed to open.", fptemp);
+        printf("%p failed to open.", fptemp);
         //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
         exit(0);
     }
@@ -92,11 +92,11 @@ int main (int argc, char **argv)
 
 		#ifdef RUNTIME
       temp = temp / 1000;
-			fprintf(fp, "%d, ", temp); 
+			fprintf(fp, " %d, ", temp); 
  // printf("happy3");
  //fflush(stdout);
 
-			fprintf(fp, "%G \n", time_spent);
+			fprintf(fp, " %G\n", time_spent);
 		#endif	
     }
 
