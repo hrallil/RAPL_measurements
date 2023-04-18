@@ -85,12 +85,12 @@ int main (int argc, char **argv)
       //read temp file
       fptemp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
       //fptemp = fopen("/sys/class/thermal/thermal_zone0/tem", "r"); error test
-      // if (fptemp == NULL)
-      // {
-      //   printf("%p failed to open.", fptemp);
-      //   //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
-      //   exit(0);
-      // }
+      if (fptemp == NULL)
+      {
+        printf("%p failed to open.", fptemp);
+        //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
+        exit(0);
+      }
 
   printf("happy1");
   fflush(stdout);
