@@ -17,7 +17,7 @@ randMeasure: # dont run tests: 75000 200000 300000 800000 900000
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 													\
 		for i in 1 2 3 4 5 6 7 8 9 10; do 																														\
 			echo "Running: $$i"; 																																\
-			sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random$$i-$$number.csv" "$$number" " JavaSort/results/randomJavaSort random$$i-$$number; 		\
+			sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random$$i-$$number.csv" "$$number" " JavaSort/results/randomJavaSort random$$i-$$number 3; 		\
 		done 																																					\
 	done
 	sudo ifconfig wlp4s0 up
@@ -26,14 +26,14 @@ pcChoice:
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 													\
-		sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random1-$$number.csv" "$$number" " JavaSort/results/pcTest-HERE pcTest-$$number; 					\
+		sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random1-$$number.csv" "$$number" " JavaSort/results/pcTest-HERE pcTest-$$number 400; 					\
 	done
 	sudo ifconfig wlp4s0 up
 
 tempRead:
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random1-25000.csv" "25000" " JavaSort/results/tempJavaSort random1-25000;
+	sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random1-25000.csv" "25000" " JavaSort/results/tempJavaSort random1-25000 400;
 	sudo ifconfig wlp4s0 up
 
 bestMeasure: #doesnt do anything significant yet
