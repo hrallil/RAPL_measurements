@@ -17,13 +17,13 @@ Argv[3] bubblesort
 */
 
 int main (int argc, char **argv)
-{ char command[500] = "", language[500] = "", test[500] = "", path[500] = "";
+{ char command[500] = "", algo[500] = "", test[500] = "", csv_path[500] = "";
   int  n = 10; //nr of iterations in loop
   int  core = 0;
   int  i = 0;
 
-  FILE * fp;
-  FILE * fptemp;
+  FILE * fp_csv;
+  FILE * fp_temp;
 
 #ifdef RUNTIME
   double time_spent;
@@ -33,19 +33,19 @@ int main (int argc, char **argv)
 #endif
 
   //Feed arguments into string variables 
-  strcat(command,argv[1]);
+  strcat(command, argv[1]);
 
   //Create path for results csv file
-  strcpy(path,"../");
-  strcpy(language,argv[2]);
-  strcat(language,".csv");
-  strcat(path,language);
+  strcpy(csv_path, "../");
+  strcpy(algo, argv[2]);
+  strcat(algo, ".csv");
+  strcat(csv_path, algo);
 
   //Test name which will be printed in 1. col of csv
   strcpy(test,argv[3]);
 
   //pointer to csv where data is appended to
-  fp = fopen(path,"a");
+  fp_csv = fopen(csv_path,"a");
 
   // printf("happy1");
   //fflush(stdout);
@@ -61,7 +61,7 @@ int main (int argc, char **argv)
       //print run number to terminal
  	    printf("%d", i);
       //print test name to csv
-    	fprintf(fp,"%s,",test);
+    	fprintf(fp_csv,"%s,",test);
 
 		#ifdef RUNTIME
       //save start time
@@ -69,35 +69,34 @@ int main (int argc, char **argv)
 		#endif
 
       //in rapl.c, reads rapl before and after java code is run
-	    rapl_before(fp,core);
+	    rapl_before(fp_csv,core);
 
 		    system(command);
   
-	    rapl_after(fp,core);
+	    rapl_after(fp_csv,core);
 
 		#ifdef RUNTIME
 			//get end time, calculate wall time
-			gettimeofday(&tva,0);
-			time_spent = (tva.tv_sec-tvb.tv_sec)*1000000 + tva.tv_usec-tvb.tv_usec;
+			gettimeofday(&tva, 0);
+			time_spent = (tva.tv_sec-tvb.tv_sec) * 1000000 + tva.tv_usec - tvb.tv_usec;
 			time_spent = time_spent / 1000;
 
       //open, read, close temp file
-      fptemp = fopen(temp_path, "r");
-      if (fptemp == NULL)
+      fp_temp = fopen(temp_path, "r");
+      if (fp_temp == NULL)
       {
-        //printf("%p failed to open.", fptemp);
-        //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
+        printf(" Temperature file failed to open. \n");
         exit(1);
       }
 
   printf("open");
   fflush(stdout);
 
-			fscanf(fptemp, "%d", &temp);
+			fscanf(fp_temp, "%d", &temp);
   printf("scan");
   fflush(stdout);
 
-	    fclose(fptemp);
+	    fclose(fp_temp);
   printf("close");
   fflush(stdout);
 		#endif
@@ -105,16 +104,13 @@ int main (int argc, char **argv)
 		#ifdef RUNTIME  
       //add temp, time to csv
       temp = temp / 1000;
-			fprintf(fp, " %d, ", temp); 
- // printf("happy3");
- //fflush(stdout);
-
-			fprintf(fp, " %G\n", time_spent);
+			fprintf(fp_csv, " %d, ", temp); 
+			fprintf(fp_csv, " %G\n", time_spent);
 		#endif	
     }
 
   //closes stream and csv file
-  fclose(fp);
+  fclose(fp_csv);
   
   //any unwritten data in stream output buffer is written to the terminal
   fflush(stdout);
