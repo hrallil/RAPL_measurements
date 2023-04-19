@@ -18,7 +18,7 @@ Argv[3] bubblesort
 
 int main (int argc, char **argv)
 { char command[500] = "", algo[500] = "", test[500] = "", csv_path[500] = "";
-  int  n = 10; //nr of iterations in loop
+  int  n = 10;  //nr of iterations in loop
   int  core = 0;
   int  i = 0;
 
@@ -29,7 +29,7 @@ int main (int argc, char **argv)
   double time_spent;
   struct timeval tvb,tva;
   int temp;
-  char temp_path[] = "/sys/class/thermal/thermal_zone0/tem";
+  char temp_path[] = "/sys/class/thermal/thermal_zone0/temp";
 #endif
 
   //Feed arguments into string variables 
@@ -46,9 +46,6 @@ int main (int argc, char **argv)
 
   //pointer to csv where data is appended to
   fp_csv = fopen(csv_path,"a");
-
-  // printf("happy1");
-  //fflush(stdout);
   
   //calls function in rapl.c (how?)
   rapl_init(core);
@@ -88,17 +85,16 @@ int main (int argc, char **argv)
         printf(" Temperature file failed to open. \n");
         exit(1);
       }
-
-  printf("open");
-  fflush(stdout);
+      //printf("open");
+      //fflush(stdout);
 
 			fscanf(fp_temp, "%d", &temp);
-  printf("scan");
-  fflush(stdout);
+      //printf("scan");
+      //fflush(stdout);
 
 	    fclose(fp_temp);
-  printf("close");
-  fflush(stdout);
+      //printf("close");
+      //fflush(stdout);
 		#endif
 
 		#ifdef RUNTIME  
