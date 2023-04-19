@@ -48,8 +48,8 @@ int main (int argc, char **argv)
   // if (fptemp == NULL)
   //   {
   //       printf("%p failed to open.", fptemp);
-  //       //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
-  //       exit(0);
+  //       //fprintf(stderr, "can't open %p: %s\n", fptemp, strerror(errno));
+  //       exit(1);
   //   }
 
   // printf("happy1");
@@ -84,18 +84,19 @@ int main (int argc, char **argv)
 			time_spent = time_spent / 1000;
       //read temp file
       fptemp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
-      //fptemp = fopen("/sys/class/thermal/thermal_zone0/tem", "r"); error test
+      //fptemp = fopen("/sys/class/thermal/thermal_zone0/tem", "r"); // error test
       if (fptemp == NULL)
       {
-        printf("%p failed to open.", fptemp);
+        //printf("%p failed to open.", fptemp);
         //fprintf(stderr, "can't open %s: %s\n", path, strerror(errno));
-        exit(0);
+        exit(1);
       }
 
   printf("happy1");
   fflush(stdout);
 
 			fscanf(fptemp, "%d", &temp);
+	  fclose(fptemp);
   printf("happy2");
   fflush(stdout);
 		#endif
@@ -112,7 +113,7 @@ int main (int argc, char **argv)
 
   //closes stream and underlying file
   fclose(fp);
-  fclose(fptemp);
+  
   //any unwritten data in stream output buffer is written to the terminal
   fflush(stdout);
 
