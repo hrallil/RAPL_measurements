@@ -29,7 +29,7 @@ int main (int argc, char **argv)
   double time_spent;
   struct timeval tvb,tva;
   int temp;
-  char temp_path[] = "/sys/class/thermal/thermal_zone0/temp";
+  char temp_path[] = "/sys/class/thermal/thermal_zone0/tem";
 #endif
 
   //Feed arguments into string variables 
@@ -53,7 +53,7 @@ int main (int argc, char **argv)
   //calls function in rapl.c (how?)
   rapl_init(core);
 
-  //fprintf(fp,"Package , CPU , GPU , DRAM? , Time (sec) \n");
+  //fprintf(fp_csv,"Package, CPU, GPU (blank), DRAM, Temp (C), Time (s) \n");
 
   //where the test runs happen
   for (i = 0; i < n; i++)
