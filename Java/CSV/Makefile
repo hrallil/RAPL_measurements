@@ -13,6 +13,7 @@ input:
 	make input-test
 	make input-countingWorst
 	make input-countingBest
+	make input-countingRandom
 
 input-countingBest:
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 	\
@@ -28,6 +29,13 @@ input-mergeWorst:
 input-countingWorst:
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 	\
 		java makeData.java $$number countingWorst 0; 															\
+	done
+
+input-countingRandom:
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do  \
+		for n in 1 2 3 4 5 6 7 8 9 10; do 																		\
+			java makeData.java $$number countingRandom $$n; 															\
+		done 																									\
 	done
 
 input-test:

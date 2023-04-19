@@ -35,6 +35,13 @@ public class makeData{
 				}
 				w.print(r.nextInt(10));
 			}
+			
+			if(type.equals("countingRandom")){
+				for(int i = 0; i<arraySize- 1;i++){
+					w.print(r.nextInt(100000000) + ",");
+				}
+				w.print(r.nextInt(100000000));	
+			}
 
 			if(type.equals("countingWorst")){
 				for(int i = 0; i<arraySize- 1;i++){
