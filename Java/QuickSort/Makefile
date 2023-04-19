@@ -3,7 +3,7 @@ run:
 
 testMeasure: 
 	sudo modprobe msr
-	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/test0-100.csv" "100" 1 " QuickSort/results/test Quicksort
+	sudo ../../RAPL/main "java QuickSort.java "../CSV/data/test0-100.csv" "100" " QuickSort/results/test Quicksort
 
 measure:
 	make randMeasure
@@ -24,9 +24,9 @@ randMeasure: # runs quicksort with random arrays as input
 bestMeasure: #DOES NOTHING SO FAR
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 												\
-		javac QuickSort.java; 																																\
-		sudo ../../RAPL/main "java -Xss515m QuickSort "../CSV/data/quickBest0-$$number.csv" "$$number" " QuickSort/results/QuickSort-PC{NUMBER} best$$i-$$number-1; 	\
+	javac QuickSort.java; 																																   				\
+	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 															\
+		sudo ../../RAPL/main "java -Xss515m QuickSort "../CSV/data/quickBest0-$$number.csv" "$$number" " QuickSort/results/QuickSort-PC{NUMBER} best$$i-$$number-1 1; 	\
 	done
 	sudo ifconfig wlp4s0 up
 
