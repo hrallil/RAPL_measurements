@@ -18,7 +18,7 @@ Argv[3] bubblesort
 
 int main (int argc, char **argv)
 { char command[500] = "", algo[500] = "", test[500] = "", csv_path[500] = "";
-  int  n = 10;  //nr of iterations in loop
+  int  n = atoi(argv[4]);  //nr of iterations in loop
   int  core = 0;
   int  i = 0;
 
