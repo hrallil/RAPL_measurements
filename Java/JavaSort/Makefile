@@ -17,7 +17,7 @@ randMeasure: # dont run tests: 75000 200000 300000 800000 900000
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 													\
 		echo "Running: $$number"; 																																\
 		for i in 1 2 3 4 5 6 7 8 9 10; do 																														\
-			sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random$$i-$$number.csv" "$$number" " JavaSort/results/randomJavaSort random$$i-$$number 3; 	\
+			sudo ../../RAPL/main "java JavaSort.java "../CSV/data/random$$i-$$number.csv" "$$number" " JavaSort/results/javaSort-PC{NUMBER}  random$$i-$$number 3; 	\
 		done 																																					\
 	done
 	sudo ifconfig wlp4s0 up
@@ -35,7 +35,7 @@ bestMeasure: #doesnt do anything significant yet
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 													\
-		sudo ../../RAPL/main "java JavaSort.java "../CSV/data/$$number.csv" "$$number" " JavaSort/results/bestJavaSort $$number; 								\
+		sudo ../../RAPL/main "java JavaSort.java "../CSV/data/$$number.csv" "$$number" " JavaSort/results/javaSort-PC{NUMBER} $$number; 								\
 	done
 	sudo ifconfig wlp4s0 up
 
@@ -43,6 +43,6 @@ worstMeasure: #runs javasort with the worst arrays for quicksort as input
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 											\
-		sudo ../../RAPL/main "java JavaSort.java "../CSV/data/reverseSorted0-$$number.csv" "$$number" " JavaSort/results/Javasort worst-$$number-1; 	\
+		sudo ../../RAPL/main "java JavaSort.java "../CSV/data/reverseSorted0-$$number.csv" "$$number" " JavaSort/results/javaSort-PC{NUMBER} worst-$$number-1; 	\
 	done
 	sudo ifconfig wlp4s0 up
