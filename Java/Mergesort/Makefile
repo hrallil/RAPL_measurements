@@ -2,8 +2,8 @@ run:
 	java mergeSort.java "../CSV/data/test0-100.csv" "100"
 
 testMeasure: 
-	sudo modprobe msr
-	sudo ../../RAPL/main "java mergeSort.java "../CSV/data/test0-100.csv" "100" " Mergesort/results/test mergeSort 1
+	modprobe msr
+	../../RAPL/main "java mergeSort.java "../CSV/data/test0-100.csv" "100" " Mergesort/results/test mergeSort 1
 
 
 measure:
