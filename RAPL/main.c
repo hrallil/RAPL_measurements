@@ -108,7 +108,7 @@ int main (int argc, char **argv)
   //closes stream and csv file
   fclose(fp_csv);
  
-  printf("%s is finished", command);
+  printf("%s is finished \n", command);
   
   //any unwritten data in stream output buffer is written to the terminal
   fflush(stdout);
