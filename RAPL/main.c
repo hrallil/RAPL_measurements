@@ -27,7 +27,7 @@ int main (int argc, char **argv)
 
 #ifdef RUNTIME
   double time_spent;
-  struct timeval tvb,tva;
+  struct timeval tvb, tva;
   int temp;
   char temp_path[] = "/sys/class/thermal/thermal_zone0/temp";
 #endif
@@ -42,10 +42,10 @@ int main (int argc, char **argv)
   strcat(csv_path, algo);
 
   //Test name which will be printed in 1. col of csv
-  strcpy(test,argv[3]);
+  strcpy(test, argv[3]);
 
   //pointer to csv where data is appended to
-  fp_csv = fopen(csv_path,"a");
+  fp_csv = fopen(csv_path, "a");
   
   //calls function in rapl.c (how?)
   rapl_init(core);
@@ -58,24 +58,24 @@ int main (int argc, char **argv)
       //print run number to terminal
  	    //printf("%d", i);
       //print test name to csv
-    	fprintf(fp_csv,"%s,",test);
+    	fprintf(fp_csv,"%s,", test);
 
 		#ifdef RUNTIME
       //save start time
-      gettimeofday(&tvb,0);
+      gettimeofday(&tvb, 0);
 		#endif
 
       //in rapl.c, reads rapl before and after java code is run
-	    rapl_before(fp_csv,core);
+	    rapl_before(fp_csv, core);
 
 		    system(command);
   
-	    rapl_after(fp_csv,core);
+	    rapl_after(fp_csv, core);
 
 		#ifdef RUNTIME
 			//get end time, calculate wall time
 			gettimeofday(&tva, 0);
-			time_spent = (tva.tv_sec-tvb.tv_sec) * 1000000 + tva.tv_usec - tvb.tv_usec;
+			time_spent = (tva.tv_sec - tvb.tv_sec) * 1000000 + tva.tv_usec - tvb.tv_usec;
 			time_spent = time_spent / 1000;
 
       //open, read, close temp file
