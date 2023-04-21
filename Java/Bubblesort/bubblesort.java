@@ -45,6 +45,7 @@ public class bubblesort{
 		catch(Exception e){
 			System.out.println(e);
 			System.out.println("Failed to read csv: " + path +"\n");
+			System.exit(0);
 		}
 		return arr;
 	}
