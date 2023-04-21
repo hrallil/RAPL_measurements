@@ -56,7 +56,7 @@ int main (int argc, char **argv)
   for (i = 0; i < n; i++)
     {
       //print run number to terminal
- 	    printf("%d", i);
+ 	    //printf("%d", i);
       //print test name to csv
     	fprintf(fp_csv,"%s,",test);
 
@@ -107,6 +107,8 @@ int main (int argc, char **argv)
 
   //closes stream and csv file
   fclose(fp_csv);
+ 
+  printf("%s is finished", command);
   
   //any unwritten data in stream output buffer is written to the terminal
   fflush(stdout);
