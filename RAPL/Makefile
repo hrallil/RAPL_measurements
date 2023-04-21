@@ -8,7 +8,7 @@ rapl.o : rapl.c rapl.h
 clean:
 	rm -rf main.o rapl.o
 
-reCompile:
+recompile:
 	make clean
 	make rapl.o
 	make main
