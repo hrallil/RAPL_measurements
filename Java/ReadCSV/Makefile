@@ -3,7 +3,7 @@ run:
 
 testMeasure: 
 	#sudo modprobe msr
-	sudo ../../RAPL/main "java readCSV.java "../CSV/data/test0-100.csv" "100" " ReadCSV/results/test ReadCSV
+	../../RAPL/main "java readCSV.java "../CSV/data/test0-100.csv" "100" " ReadCSV/results/test ReadCSV
 
 
 measure:
