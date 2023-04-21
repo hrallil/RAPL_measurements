@@ -2,7 +2,7 @@ run:
 	java countingSort.java "../CSV/data/test0-100.csv" "100"
 
 testMeasure: 
-	#sudo modprobe msr
+	sudo modprobe msr
 	../../RAPL/main "java countingSort.java "../CSV/data/test0-100.csv" "100" " CountingSort/results/test countingSort
 
 
