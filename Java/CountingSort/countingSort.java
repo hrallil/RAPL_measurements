@@ -70,6 +70,7 @@ public class CountingSort {
 		} catch (Exception e){
 			System.out.println(e);
 			System.out.println("Failed to read csv: "+path);
+			System.exit(0);
 		}
 		return arr;
 	}
