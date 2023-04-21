@@ -9,6 +9,8 @@ measure:
 	make randMeasure
 	make worstMeasure
 	make bestMeasure
+	javac bubblesort.java;																																			\
+
 
 randMeasure: # dont run tests: 600000 700000 800000 900000 1000000
 	#sudo ifconfig wlp4s0 down
