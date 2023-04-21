@@ -34,6 +34,7 @@ public class readCSV{
 		catch(Exception e){
 			System.out.println(e);
 			System.out.println("Failed to read CSV" + path +"\n");
+			System.exit(0);
 		}
 		return arr;
 	}
