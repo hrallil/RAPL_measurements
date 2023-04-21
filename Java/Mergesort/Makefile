@@ -7,8 +7,7 @@ testMeasure:
 
 
 measure:
-	javac mergeSort.java;
-
+	javac mergeSort.java
 	make randMeasure
 	make randMeasure
 	make bestMeasure
