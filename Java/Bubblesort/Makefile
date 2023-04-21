@@ -10,7 +10,7 @@ measure:
 	make worstMeasure
 	make bestMeasure
 
-randMeasure: # dont run tests: 75000 200000 300000 800000 900000
+randMeasure: # dont run tests: 600000 700000 800000 900000 1000000
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000; do 																								\
@@ -20,7 +20,7 @@ randMeasure: # dont run tests: 75000 200000 300000 800000 900000
 	done
 	sudo ifconfig wlp4s0 up
 
-bestMeasure: #doesnt do anything significant yet
+bestMeasure: # dont run tests: 600000 700000 800000 900000 1000000
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000; do 																							\
@@ -28,7 +28,7 @@ bestMeasure: #doesnt do anything significant yet
 	done
 	sudo ifconfig wlp4s0 up
 
-worstMeasure: #doesnt do anything significant yet
+worstMeasure: # dont run tests: 600000 700000 800000 900000 1000000
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000; do 																								\
