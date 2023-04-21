@@ -4,7 +4,7 @@ runAll:
 	$(MAKE) -C QuickSort run
 	$(MAKE) -C Mergesort run
 	$(MAKE) -C CountingSort run
-	$(MAKE) -C Idle run
+	$(MAKE) -C ReadCSV run
 
 measureAll:
 	sudo ifconfig wlp4s0 down
@@ -14,5 +14,5 @@ measureAll:
 	$(MAKE) -C CountingSort measure
 	$(MAKE) -C Bubblesort measure
 	$(MAKE) -C QuickSort measure
-	$(MAKE) -C Idle measure
+	$(MAKE) -C ReadCSV measure
 	sudo ifconfig wlp4s0 up
