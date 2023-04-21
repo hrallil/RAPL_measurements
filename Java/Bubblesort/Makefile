@@ -2,11 +2,11 @@ run:
 	java bubblesort.java  "../CSV/data/test0-100.csv" "100"
 
 testMeasure: 
-	 modprobe msr
+	 #modprobe msr
 	 ../../RAPL/main "java bubblesort.java "../CSV/data/test0-100.csv" "100" " Bubblesort/results/test bubblesort 1
 
 measure:
-	javac bubblesort.java;
+	javac bubblesort.java
 	make randMeasure
 	make worstMeasure
 	make bestMeasure
