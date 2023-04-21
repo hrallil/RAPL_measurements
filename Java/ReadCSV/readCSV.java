@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.util.Arrays;
 
-public class Idle{
+public class readCSV{
 	public static void main(String[] args){
 		int[] arr = CSV_toArr(args[0],args[1]);	
 	}
