@@ -8,7 +8,7 @@ runAll:
 
 measureAll:
 	$(MAKE) -C Mergesort measure
-	$(MAKE) -C JavaSort measure
+	#$(MAKE) -C JavaSort measure
 	$(MAKE) -C CountingSort measure
 	$(MAKE) -C Bubblesort measure
 	$(MAKE) -C QuickSort measure
