@@ -23,7 +23,7 @@ measureRand:
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
 		for i in 1 2 3 4 5 6 7 8 9 10; do \
 			sudo ../../RAPL/main "java Idle.java "../CSV/data/random0-$$number.csv" "$$number" " Idle/results/readCSV readCSVRand$$number 1;	\
-		done
+		done	\
 	done
 	sudo ifconfig wlp4s0 up
 	
@@ -34,7 +34,7 @@ measureCountingRand:
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
 		for i in 1 2 3 4 5 6 7 8 9 10; do \
 			sudo ../../RAPL/main "java Idle.java "../CSV/data/countingRandom$$i-$$number.csv" "$$number" " Idle/results/readCSV readCSVCountingRand$$number 1;	\
-		done
+		done	\
 	done
 	sudo ifconfig wlp4s0 up
 	
