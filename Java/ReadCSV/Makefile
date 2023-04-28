@@ -23,7 +23,7 @@ measureRand:
 	#sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
 		for i in 1 2 3 4 5 6 7 8 9 10; do \
-			../../RAPL/main "java -Xss515m readCSV "../CSV/data/random$$i-$$number.csv" "$$number" " ReadCSV/results/readCSV-PC{HERE} readCSVRand$$number 400;	\
+			../../RAPL/main "java -Xss515m readCSV "../CSV/data/random$$i-$$number.csv" "$$number" " ReadCSV/results/readCSV-PC{HERE} readCSVRand$$number 40;	\
 		done	\
 	done
 	#sudo ifconfig wlp4s0 up
@@ -34,7 +34,7 @@ measureCountingRand:
 	#sudo modprobe msr
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do \
 		for i in 1 2 3 4 5 6 7 8 9 10; do \
-			../../RAPL/main "java -Xss515m readCSV "../CSV/data/countingRandom$$i-$$number.csv" "$$number" " ReadCSV/results/readCSV-PC{HERE} readCSVCountingRand$$number 400;	\
+			../../RAPL/main "java -Xss515m readCSV "../CSV/data/countingRandom$$i-$$number.csv" "$$number" " ReadCSV/results/readCSV-PC{HERE} readCSVCountingRand$$number 40;	\
 		done	\
 	done
 	#sudo ifconfig wlp4s0 up
