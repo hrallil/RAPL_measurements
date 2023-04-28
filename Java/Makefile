@@ -9,10 +9,10 @@ runAll:
 measureAll:
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr
-	$(MAKE) -C Mergesort measure
-	#$(MAKE) -C JavaSort measure
 	$(MAKE) -C CountingSort measure
-	$(MAKE) -C Bubblesort measure
-	$(MAKE) -C QuickSort measure
+	$(MAKE) -C Mergesort measure
 	$(MAKE) -C ReadCSV measure
+	$(MAKE) -C QuickSort measure
+	$(MAKE) -C Bubblesort measure
+	#$(MAKE) -C JavaSort measure
 	sudo ifconfig wlp4s0 up

@@ -8,7 +8,7 @@ testMeasure:
 
 measure:
 	make randMeasure
-	make randMeasure
+	make worstMeasure
 	make bestMeasure
 
 randMeasure: # dont run tests: 75000 200000 300000 800000 900000
