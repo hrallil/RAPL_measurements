@@ -9,7 +9,7 @@ testMeasure:
 measure:
 	javac mergeSort.java
 	make randMeasure
-	make randMeasure
+	make worstMeasure
 	make bestMeasure
 
 randMeasure: # Random values measurement 

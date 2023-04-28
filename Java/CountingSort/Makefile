@@ -9,7 +9,7 @@ testMeasure:
 measure:
 	javac countingSort.java
 	make randMeasure
-	make randMeasure
+	make worstMeasure
 	make bestMeasure
 
 randMeasure: # Random values measurement 
