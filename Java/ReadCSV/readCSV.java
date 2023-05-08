@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.Arrays;
 
 public class readCSV{
