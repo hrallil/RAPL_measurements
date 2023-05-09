@@ -19,6 +19,8 @@ public class readCSV{
 		} catch (Exception e){
 			System.out.println(e);
 		}
+
+
 	}
 
 	public static int[] CSV_toArr(String path, String arrSize){
