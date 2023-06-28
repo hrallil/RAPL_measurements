@@ -6,6 +6,15 @@ runAll:
 	$(MAKE) -C CountingSort run
 	$(MAKE) -C ReadCSV run
 
+measureAll400Repeats:
+	sudo ifconfig wlp4s0 down
+	sudo modprobe msr
+	$(MAKE) -C QuickSort measure400Repeats
+	$(MAKE) -C Bubblesort measure400Repeats
+	$(MAKE) -C Bubblesort measureBranchMispredictions
+	$(MAKE) -C ReadCSV measureBranchMispredictANDnewCSV
+	sudo ifconfig wlp4s0 up	
+
 measureAll:
 	sudo ifconfig wlp4s0 down
 	sudo modprobe msr

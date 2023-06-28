@@ -4,36 +4,37 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class CountingSort {
-    	public static void main(String[] args) {
-        	int[] arr = CSV_toArr(args[0], args[1]); //{1,0,3,1,3,1};
+	public static void main(String[] args) {
+		int[] arr = CSV_toArr(args[0], args[1]); //{1,0,3,1,3,1};
 //        	System.out.println("before: "+ Arrays.toString(arr));
-        	int n = arr.length;
-        	int max = 0;
-        	for (int i = 0; i < n-1; i++){
-            		if (arr[i] > max) max = arr[i];
-        	}
-		
-		//long totalMemBefore = rt.totalMemory();
-		//long freeMemBefore  = rt.freeMemory();
-		//long usedMemBefore  = totalMemBefore - freeMemBefore;
-		
-        	arr = countingSort(arr, max, n);
-//		
-		Runtime rt = Runtime.getRuntime();
-		long totalMemAfter = rt.totalMemory();
-		long freeMemAfter  = rt.freeMemory();
-		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
-		File f = new File("./results/CountingSortMemory-PC#.csv"); //replace # with PC number
-		try{
-			FileWriter fw = new FileWriter(f, true);
-			fw.write(usedMemAfter+",");
-			fw.close();
-		} catch (Exception e){
-			System.out.println(e);
+		int n = arr.length;
+		int max = 0;
+		for (int i = 0; i < n-1; i++){
+				if (arr[i] > max) max = arr[i];
 		}
-		
+	
+		for (int i = 0; i < 400; i++){
+			int[] arrCopy = new int[arr.length];
+			System.arraycopy(arr, 0, arrCopy, 0, arr.length);
+			
+			arr = countingSort(arr, max, n);
+		}
+//		
+	// Runtime rt = Runtime.getRuntime();
+	// long totalMemAfter = rt.totalMemory();
+	// long freeMemAfter  = rt.freeMemory();
+	// long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
+	// File f = new File("./results/CountingSortMemory-PC#.csv"); //replace # with PC number
+	// try{
+	// 	FileWriter fw = new FileWriter(f, true);
+	// 	fw.write(usedMemAfter+",");
+	// 	fw.close();
+	// } catch (Exception e){
+	// 	System.out.println(e);
+	// }
+	
 //		System.out.println("after:  "+ Arrays.toString(arr));
-    	}
+	}
 
 	public static int[] countingSort(int[] arr, int max, int n){
 		//temp array
