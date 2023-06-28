@@ -1,52 +1,52 @@
 run:
-	java Bubblesort.java  "../CSV/data/test0-100.csv" "100"
+	java BubbleSort.java  "../CSV/data/test0-100.csv" "100"
 
 testMeasure: 
 	 modprobe msr
-	 ../../RAPL/main "java Bubblesort.java "../CSV/data/test0-100.csv" "100" " Bubblesort/results/test bubblesort 1
+	 ../../RAPL/main "java BubbleSort.java "../CSV/data/test0-100.csv" "100" " Bubblesort/results/test bubblesort 1
 
 measure:
-	javac Bubblesort.java
+	javac BubbleSort.java
 	make randMeasure
 	make worstMeasure
 	make bestMeasure
 																																				\
 
 measure400Repeats:
-	javac Bubblesort.java
+	javac BubbleSort.java
 
 	#Heat up:
-	java -Xss515m Bubblesort "../CSV/data/sorted0-25000.csv" "25000";
+	java -Xss515m BubbleSort "../CSV/data/sorted0-25000.csv" "25000";
 
 	# Tests:
 	for number in 25000 50000 75000 100000 125000 150000 175000 200000; do 																							\
-		 ../../RAPL/main "java -Xss515m Bubblesort "../CSV/data/sorted0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400repeats-PC16 best$$i-$$number-1 30;		\
+		 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/sorted0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400repeats-PC16 best$$i-$$number-1 30;		\
 	done
 
 	for number in 25000 50000 75000 100000 125000 150000 175000 200000; do 																								\
-		 ../../RAPL/main "java -Xss515m Bubblesort "../CSV/data/reverseSorted0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400repeats-PC16 worst$$i-$$number-1 30; \
+		 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/reverseSorted0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400repeats-PC16 worst$$i-$$number-1 30; \
 	done
 
 	for number in 25000 50000 75000 100000 125000 150000 175000 200000; do 																								\
 		for i in 1 2 3 4 5 6 7 8 9 10; do 																																\
-			 ../../RAPL/main "java -Xss515m Bubblesort "../CSV/data/random$$i-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400repeats-PC16 random$$i-$$number-1 3; \
+			 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/random$$i-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400repeats-PC16 random$$i-$$number-1 3; \
 		done																																							\
 	done
 
 measureBranchMispredictions:
-	javac Bubblesort.java
-	javac BubblesortBAD.java
+	javac BubbleSort.java
+	javac BubbleSortBAD.java
 
 	#Heat up:
-	java -Xss515m Bubblesort "../CSV/data/sorted0-10000.csv" "10000";
+	java -Xss515m BubbleSort "../CSV/data/sorted0-10000.csv" "10000";
 
 	#Tests:
 	for number in 10000 20000 30000 40000 50000; do 																							\
-		 ../../RAPL/main "java -Xss515m Bubblesort "../CSV/data/branchPredict0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-branchMispredict-PC16 greaterThan0-$$number-1 30;		\
+		 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/branchPredict0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-branchMispredict-PC16 greaterThan0-$$number-1 30;		\
 	done
 
 	for number in 10000 20000 30000 40000 50000; do 																							\
-		 ../../RAPL/main "java -Xss515m BubblesortBAD "../CSV/data/branchPredict0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-branchMispredict-PC16 greaterThanEquals0-$$number-1 30;		\
+		 ../../RAPL/main "java -Xss515m BubbleSortBAD "../CSV/data/branchPredict0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-branchMispredict-PC16 greaterThanEquals0-$$number-1 30;		\
 	done
 
 
