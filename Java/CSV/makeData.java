@@ -17,7 +17,7 @@ public class makeData{
 			PrintWriter w = new PrintWriter(f);
 
 			if(type.equals("branchPredict")){
-				for (int i = 0; i arraySize - 1; i++) {
+				for (int i = 0; i < arraySize - 1; i++) {
 					if (i % 2 == 0){
 						w.print(2 +",");
 					} else {
