@@ -10,21 +10,25 @@ public class bubblesort{
 		//long totalMemBefore = rt.totalMemory();
 		//long freeMemBefore  = rt.freeMemory();
 		//long usedMemBefore  = totalMemBefore - freeMemBefore;
-		
-		bubblesort(arr);
-		
-		Runtime rt = Runtime.getRuntime();
-		long totalMemAfter = rt.totalMemory();
-		long freeMemAfter  = rt.freeMemory();
-		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
-		File f = new File("./results/BubbleSortMemory-PC#.csv"); //replace # with PC number
-		try{
-			FileWriter fw = new FileWriter(f, true);
-			fw.write(usedMemAfter+",");
-			fw.close();
-		} catch (Exception e){
-			System.out.println(e);
+		for (int i = 0; i < 400; i++){
+			int[] arrCopy = new int[arr.length];
+			System.arraycopy(arr, 0, arrCopy, 0, arr.length);
+			
+			bubblesort(arrCopy);
 		}
+		
+//		Runtime rt = Runtime.getRuntime();
+//		long totalMemAfter = rt.totalMemory();
+//		long freeMemAfter  = rt.freeMemory();
+//		long usedMemAfter  = (totalMemAfter - freeMemAfter);// - usedMemBefore;
+//		File f = new File("./results/BubbleSortMemory-PC#.csv"); //replace # with PC number
+//		try{
+//			FileWriter fw = new FileWriter(f, true);
+//			fw.write(usedMemAfter+",");
+//			fw.close();
+//		} catch (Exception e){
+//			System.out.println(e);
+//		}
 		//showarr(arr);
 	}
 
