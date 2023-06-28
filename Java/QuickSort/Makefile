@@ -16,7 +16,7 @@ measure400Repeats:
 	javac QuickSort.java
 
 	#Heat up:
-	java -Xss515m QuickSort "../CSV/data/reverseSorted0-200000.csv" "$$number"
+	java -Xss515m QuickSort "../CSV/data/reverseSorted0-25000.csv" "25000"
 	
 	#Tests:
 #	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 															\

@@ -16,7 +16,7 @@ measure400Repeats:
 	javac Bubblesort.java
 
 	#Heat up:
-	java -Xss515m Bubblesort "../CSV/data/sorted0-100000.csv" "$$number";
+	java -Xss515m Bubblesort "../CSV/data/sorted0-25000.csv" "25000";
 
 	# Tests:
 	for number in 25000 50000 75000 100000 125000 150000 175000 200000; do 																							\
@@ -38,7 +38,7 @@ measureBranchMispredictions:
 	javac BubblesortBAD.java
 
 	#Heat up:
-	java -Xss515m Bubblesort "../CSV/data/sorted0-100000.csv" "$$number";
+	java -Xss515m Bubblesort "../CSV/data/sorted0-10000.csv" "10000";
 
 	#Tests:
 	for number in 10000 20000 30000 40000 50000; do 																							\
