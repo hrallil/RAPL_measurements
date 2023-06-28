@@ -15,6 +15,26 @@ input:
 	make input-countingBest
 	make input-countingRandom
 
+input-bubbleBranchPredict:
+	for number in 10000 20000 30000 40000 50000; do 	\
+		java makeData.java $$number branchPredict 0; 															\
+	done
+
+input-nSquaredExtraCSV:
+	for number in 125000 150000 175000; do 	\
+		java makeData.java $$number sorted 0; 															\
+	done
+
+	for number in 125000 150000 175000; do 	\
+		java makeData.java $$number reverseSorted 0; 															\
+	done
+
+	for number in 125000 150000 175000; do  \
+		for n in 1 2 3 4 5 6 7 8 9 10; do 																		\
+			java makeData.java $$number random $$n; 															\
+		done 																									\
+	done
+
 input-countingBest:
 	for number in 25000 50000 75000 100000 200000 300000 400000 500000 600000 700000 800000 900000 1000000; do 	\
 		java makeData.java $$number countingBest 0; 															\

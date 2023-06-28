@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.Arrays;
 
-public class readCSV{
+public class ReadCSV{
 	public static void main(String[] args){
 		int[] arr = CSV_toArr(args[0],args[1]);	
 		
