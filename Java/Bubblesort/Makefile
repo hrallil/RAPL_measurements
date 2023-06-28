@@ -20,16 +20,16 @@ measure400Repeats:
 
 	# Tests:
 	for number in 25000 50000 75000 100000 125000 150000 175000 200000; do 																							\
-		 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/sorted0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400repeats-PC16 best$$i-$$number-1 30;		\
+		 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/sorted0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400runs-PC16 best$$i-$$number-1 30;		\
 	done
 
 	for number in 25000 50000 75000 100000 125000 150000 175000 200000; do 																								\
-		 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/reverseSorted0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400repeats-PC16 worst$$i-$$number-1 30; \
+		 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/reverseSorted0-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400runs-PC16 worst$$i-$$number-1 30; \
 	done
 
 	for number in 25000 50000 75000 100000 125000 150000 175000 200000; do 																								\
 		for i in 1 2 3 4 5 6 7 8 9 10; do 																																\
-			 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/random$$i-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400repeats-PC16 random$$i-$$number-1 3; \
+			 ../../RAPL/main "java -Xss515m BubbleSort "../CSV/data/random$$i-$$number.csv" "$$number" " Bubblesort/results/bubbleSort-400runs-PC16 random$$i-$$number-1 3; \
 		done																																							\
 	done
 
