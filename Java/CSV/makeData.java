@@ -15,6 +15,17 @@ public class makeData{
 		Random r = new Random();
 		try{
 			PrintWriter w = new PrintWriter(f);
+
+			if(type.equals("branchPredict")){
+				for (int i = 0; i arraySize - 1; i++) {
+					if (i % 2 == 0){
+						w.print(2 +",");
+					} else {
+						w.print(1 +",");
+					}
+				}
+				w.print(1);
+			}
 			
 			if(type.equals("sorted")){
 				for (int i = 0; i < arraySize - 1; i++) {
