@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.util.Scanner;
-public class BubbleSort{
+public class BubbleSortBAD{
 	//main mehtod
 	public static void main(String[] args ){
 		int[] arr =  CSV_toArr(args[0],args[1]);

@@ -38,7 +38,7 @@ measureBranchMispredictions:
 	javac BubbleSortBAD.java
 
 	#Heat up:
-	java -Xss515m BubbleSort "../CSV/data/sorted0-10000.csv" "10000";
+	java -Xss515m BubbleSort "../CSV/data/branchPredict0-10000.csv" "10000";
 
 	#Tests:
 	for number in 10000 20000 30000 40000 50000; do 																							\
